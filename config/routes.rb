@@ -7,13 +7,14 @@ DigitalNotebook::Application.routes.draw do
   match '/contact', :to => 'static#contact'
 
   match '/about', :to => 'static#about'
-
+  match '/home', :to => 'static#home'
+  
   resources :sessions, :only => [:new, :create, :destroy]
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   
-  get "pages/home"
+
 
   get "pages/contact"
 
