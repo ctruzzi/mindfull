@@ -1,7 +1,7 @@
 class CreatePages < ActiveRecord::Migration
   def change
     create_table :pages do |t|
-      t.integer :userId
+      t.integer :user_id
       t.string :title
       t.string :custom
 
