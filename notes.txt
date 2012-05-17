@@ -31,5 +31,12 @@ rails generate scaffold Class name:string user_id:string
 RESTART
 rake db:reset
 
+SEED
+rake db:seed
+
+ENGINE YARD
+View production.log
+/data/*appname*/shared/log/production.log
+
 Another way to do partials
 <%= #render :partial => 'clazzs/single', :locals => {:some_variable => "somevalue", :some_other_variable => clazz} %>
