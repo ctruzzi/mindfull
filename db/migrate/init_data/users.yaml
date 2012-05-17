@@ -1,0 +1,6 @@
+admin:
+ name: Admin
+  value: 1
+normal:
+ name: Normal user
+  value: 2

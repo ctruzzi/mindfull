@@ -1,0 +1,24 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  userId: 1
+  title: MyString
+  custom: MyString
+
+two:
+  userId: 1
+  title: MyString
+  custom: MyString
+# == Schema Information
+#
+# Table name: pages
+#
+#  id         :integer         not null, primary key
+#  user_id    :integer
+#  title      :string(255)
+#  custom     :string(255)
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#  section_id :string(255)
+#
+

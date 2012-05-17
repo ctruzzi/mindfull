@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @clazz.name %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @clazz.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_clazz_path(@clazz) %> |
+<%= link_to 'Back', clazzs_path %>

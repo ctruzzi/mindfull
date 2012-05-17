@@ -1,0 +1,14 @@
+<div class="clazz-box">
+	<div class="clazz-name"><h3><%= link_to clazz.name, clazz %> </h3></div>
+	<ul class="sections-list">
+		<% clazz.sections.each do |section| %>
+
+			<li> 
+				<%= link_to section.title, :controller => "clazzs", :action => "show", :id => clazz.id, :current => section.id %>
+			</li>
+		<% end %>
+		<li>
+			+
+		</li>
+	</ul>
+</div>

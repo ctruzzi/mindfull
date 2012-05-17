@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  user_id: MyString
+
+two:
+  name: MyString
+  user_id: MyString
+# == Schema Information
+#
+# Table name: clazzs
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  user_id    :string(255)
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+

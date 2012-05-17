@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  userName: MyString
+  email: MyString
+
+two:
+  userName: MyString
+  email: MyString
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  user_name          :string(255)
+#  email              :string(255)
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#
+

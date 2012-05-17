@@ -1,0 +1,63 @@
+rails generate scaffold User userName:string email:string
+
+Users 
+  - User Name
+  - Email address
+  - Basic Information
+
+rails generate scaffold Section userId:Integer color:string title:string
+
+Sections
+  - User association
+  - Color
+  - Hidden Title
+
+rails generate scaffold Page userId:integer title:string custom:string
+
+Pages
+  - User association
+  - Section association - not required?
+  - Name
+  - Custom?
+
+rails generate scaffold Entry pageId:integer text:string imageUrl:string customCss:string xcoord:integer ycoord:integer
+ Notes
+  - Page association
+  - X/Y coordinates
+  - Custom CSS
+  - Image URL
+  - Text
+
+
+We need to create a page that will load all of the thingies
+
+Three main sections of the site
+Navigation on the top
+Sections with Pages right be low
+Page Canvas where you edit the currently selected page which takes up the rest of the screen.
+
+Class Sections - 
+  - Hidden Scrollable Horizontal (did similar thing for work.)
+  - Sortable (JQuery) that has a vertical bound if possible (so we can only move them horizontally and not all over the page)
+  - Hideable sections. 
+  - Arrow for editing?
+
+Pages - 
+  - Double click to open that page. 
+  - If we change section area, then ask user if this is what we really plan on doing.
+
+Page Canvas -
+  - This outer div will be the constraints for all entries.
+  - For now will default this at some specific size (not adjustable at the moment)
+  - Need option to be in edit / view modes.
+Entry -
+  - Each entry has a picture and text
+  - The text overlays the picture only when the user requires
+  - Entries are resizable (JQuery)
+  - Entries are Draggable (with in the constraints of the Page Canvas)
+
+  To display the page canvas, it should really just be the page ID grabbing all the data that it needs.
+
+  SHOW PAGE: Should show the page the way we need it to.
+
+  PAGE_CANVAS will be a new model

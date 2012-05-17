@@ -1,0 +1,128 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+body,
+html {
+	margin:0;
+	padding:0;
+	color:#000;
+	background:#a7a09a;
+	font: normal small/1.4em Verdana, sans-serif;
+	font-family: Verdana, sans-serif;
+}
+
+h1 {
+	font-weight: normal;
+	margin-bottom: 2px;
+	font-size: 2.2em;
+	/*font-size: 36 pt; */
+}
+
+/* Pop Up CSS */
+#overlayEffect
+{
+	display:none;
+	position:fixed;
+	opacity:0.7;
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background: -moz-linear-gradient(rgba(11,11,11,0.1), rgba(11,11,11,0.6)) repeat-x rgba(11,11,11,0.2);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(11,11,11,0.1)), to(rgba(11,11,11,0.6))) repeat-x rgba(11,11,11,0.2);
+	z-index:1;
+}
+#popupContainer
+{
+	position:fixed;
+	left:50%;
+	top:50%;
+	width:500px;
+	/*background:url('body_bg.jpg') repeat-x left bottom #e5e5e5; */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(1, #343131));
+	border:5px solid #cecece;
+	z-index:2;
+	padding:10px;
+	border: 1px solid rgba(33, 33, 33, 0.6);
+	-moz-box-shadow: 0 0 2px rgba(255, 255, 255, 0.6) inset;
+	-webkit-box-shadow: 0 0 2px rgba(255, 255, 255, 0.6) inset;
+	box-shadow: 0 0 2px rgba(255, 255, 255, 0.6) inset;
+}
+#popupContainer h1
+{
+	text-align:left;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+	color:#090;
+	font:22px;
+	border-bottom:1px dotted #D3D3D3;
+	padding: 5px 2px;
+	margin-bottom:20px;
+}
+#popupContainer p
+{
+	font-size:16px;
+	line-height:1.4;
+}
+#close
+{
+	background:url(RedX.png) no-repeat center center;
+	cursor:pointer;
+	width:25px;
+	height:26px;
+	position:fixed;
+	z-index:3200;
+	position:absolute;
+	top:-25px;
+	right:-22px;
+}
+
+
+.container {
+	background: gray;
+}
+
+.header {
+	height: 60px;
+	background:#999;
+}
+
+.left-nav {
+	width: 200px;
+	height: 60px;
+	background-color: #999000;
+	float: left;
+}
+
+.right {
+	width: 60%;
+	float: right;
+
+}
+
+.right-nav {
+	float: right;
+	min-width: 400px;
+}
+
+.clear {
+	clear:both;
+}
+
+.class-content {
+	float: right;
+	background-color: #303030;
+	width: 100%;
+	height: 400px;
+}
+

@@ -1,0 +1,35 @@
+To get the tests running (currently growl doesn't show every time)
+1) spork --bootstrap
+2) spork
+3) autotest (may not be needed if growl doesn't work but may also increase speed 5x)
+4) rspec spec/
+
+To currently be able to ctrl+c to end the server start it with
+ruby script\rails server
+
+
+CREATE A NEW PROJECT
+
+- rails new <directory_name>
+
+create a controller
+- rails g controller welcome index
+
+create DB/view scaffold
+- rails generate scaffold User name:string email:string
+
+
+MIGRATIONS
+rails generate migration add_password_to_users encrypted_password:string
+
+rails generate migration rename_userId_to_clazz_id, :userId, :clazz_id 
+rails generate migration drop_entry
+
+rails generate scaffold Class name:string user_id:string
+
+
+RESTART
+rake db:reset
+
+Another way to do partials
+<%= #render :partial => 'clazzs/single', :locals => {:some_variable => "somevalue", :some_other_variable => clazz} %>

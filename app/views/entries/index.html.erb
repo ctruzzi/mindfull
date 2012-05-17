@@ -1,0 +1,33 @@
+<h1>Listing entries</h1>
+
+<table>
+  <tr>
+    <th>Pageid</th>
+    <th>Text</th>
+    <th>Imageurl</th>
+    <th>Customcss</th>
+    <th>Xcoord</th>
+    <th>Ycoord</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entries.each do |entry| %>
+  <tr>
+    <td><%= entry.pageId %></td>
+    <td><%= entry.text %></td>
+    <td><%= entry.imageUrl %></td>
+    <td><%= entry.customCss %></td>
+    <td><%= entry.xcoord %></td>
+    <td><%= entry.ycoord %></td>
+    <td><%= link_to 'Show', entry %></td>
+    <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+    <td><%= link_to 'Destroy', entry, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Entry', new_entry_path %>

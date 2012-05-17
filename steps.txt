@@ -1,0 +1,14 @@
+STEPS I NEED TO DO.
+
+User get to front screen
+ - Do we have a current user?
+ - YES? LOAD user information with Page Canvas with current page from session
+ - NO? Log in 
+    - User Name is all that's required, store the user ID in session
+
+Just logged in ? 
+ - Have the entire page displayed 
+ - Ajax requests required probably.
+
+
+Currently working on just the canvas area. It is the most important, and we need to have it at least somewhat presentable.

@@ -1,0 +1,19 @@
+<div class="text_centered">
+	<h1>Welcome to Digital Notebook</h1>
+
+	<p class="center">
+		This is a tutorial of what digital notebook is. Digital notebook is a customizable digital notebook that associates familiar or memorable images and sounds to unfamiliar text to improve memorization.
+	</p>
+
+	<%= form_for(:session, :url => sessions_path) do |f| %>
+
+		<div class="field">
+			<%= f.label :email %>:
+			<%= f.text_field :email %>
+		</div>
+		<div class="actions">
+			<%= f.submit "Get Started" %>
+		</div>
+	<% end %>
+	<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+</div>

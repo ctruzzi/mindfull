@@ -1,0 +1,27 @@
+// Place all the styles related to the Clazzs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h3 {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.clazz-box {
+	min-height: 80px;
+	background: red;
+	margin-bottom: 10px;
+}
+
+.clazz-name {
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 4px;
+	background: #ED3E90;
+}
+
+ul.sections-list {
+	list-style:none;
+	margin: 0, 10px;
+	padding-right: 20px;
+}

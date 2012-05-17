@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  userId: 
+  color: MyString
+  title: MyString
+
+two:
+  userId: 
+  color: MyString
+  title: MyString
+# == Schema Information
+#
+# Table name: sections
+#
+#  id         :integer         not null, primary key
+#  clazz_id   :integer
+#  color      :string(255)
+#  title      :string(255)
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+
