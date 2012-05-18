@@ -15,6 +15,7 @@ class Clazz < ActiveRecord::Base
 	has_many :sections
 
 	validates :name,	:presence => true
+	validates :user_id,	:presence => true
 end
 
 # == Schema Information

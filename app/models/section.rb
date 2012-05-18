@@ -15,5 +15,8 @@ class Section < ActiveRecord::Base
 
 	belongs_to :clazzs
 	has_many :pages
+
+	validates :clazz_id,	:presence => true
+	validates :title,		:presence => true
 end
 

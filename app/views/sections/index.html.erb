@@ -15,7 +15,7 @@
     <td><%= section.title %></td>
     <td><%= link_to 'Show', section %></td>
     <td><%= link_to 'Edit', edit_section_path(section) %></td>
-    <td><%= link_to 'Destroy', section, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', section, confirm: 'Are you sure?', method: :delete, :remote => true,  :class=>'delete_clazz' %></td>
   </tr>
 <% end %>
 </table>

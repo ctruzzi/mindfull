@@ -12,3 +12,5 @@ Just logged in ?
 
 
 Currently working on just the canvas area. It is the most important, and we need to have it at least somewhat presentable.
+
+NEXT: Need to change the bind that actually adds it to some coffee script to see if that will be the best route for all of this.

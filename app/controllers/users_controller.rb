@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @hide = true
    # @clazz_title = User
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => 'home_layout' }# show.html.erb
       format.json { render json: @user }
     end
   end

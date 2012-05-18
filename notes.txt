@@ -34,6 +34,8 @@ rake db:reset
 SEED
 rake db:seed
 
+rake assets:precompile
+
 ENGINE YARD
 View production.log
 /data/*appname*/shared/log/production.log

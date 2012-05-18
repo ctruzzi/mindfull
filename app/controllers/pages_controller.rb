@@ -31,7 +31,8 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @page }
+     #format.json { render json: @page }
+      format.js
     end
   end
 
@@ -45,6 +46,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(params[:page])
 
+    #hidden value for this one  <%= f.hidden_field :clazz_id, {:value => @section.clazz_id}  %>
     respond_to do |format|
       if @page.save
         format.html { redirect_to @page, notice: 'Page was successfully created.' }

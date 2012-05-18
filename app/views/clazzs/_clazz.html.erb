@@ -1,14 +1,9 @@
 <div class="clazz-box">
 	<div class="clazz-name"><h3><%= link_to clazz.name, clazz %> </h3></div>
-	<ul class="sections-list">
-		<% clazz.sections.each do |section| %>
-
-			<li> 
-				<%= link_to section.title, :controller => "clazzs", :action => "show", :id => clazz.id, :current => section.id %>
-			</li>
-		<% end %>
+	<ul class="sections-list" id="section-<%= clazz.id %>">
+		<%= render :partial => "sections/section_list", :collection => clazz.sections %>
 		<li>
-			+
+			<%= link_to '+', {:controller => "sections", :action => "new", :clazz => clazz.id}, :remote=>true %>
 		</li>
 	</ul>
 </div>

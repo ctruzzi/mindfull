@@ -25,7 +25,6 @@ class ClazzsController < ApplicationController
   # GET /clazzs/new.json
   def new
     @clazz = Clazz.new
-
     respond_to do |format|
       format.html # new.html.erb
       #format.json { render json: @clazz }
@@ -41,7 +40,7 @@ class ClazzsController < ApplicationController
   # POST /clazzs
   # POST /clazzs.json
   def create
-    @clazz = current_user.clazzs.new(params[:clazz])
+    @clazz = current_user.clazzs.build(params[:clazz])
 
     respond_to do |format|
       if @clazz.save
@@ -49,7 +48,9 @@ class ClazzsController < ApplicationController
         format.html { redirect_to(@clazz, :notice => 'class created.') }  
         format.js
       else
+        @clazz_amt = "error"
         format.html { render :action => "new" }  
+        #format.json { render json: @clazz.errors, status: :unprocessable_entity }
         format.js
       end
     end

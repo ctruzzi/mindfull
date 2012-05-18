@@ -1,38 +1,23 @@
-<!--This is the main page where we show all of the classes with their pages
-
-Should do a for loop going through _clazzes
-_clazzes should do a for loop for _pages -->
-
 <!DOCTYPE html>
-<div id="wrap" style="paddin-bottom: 10px">
-	<div class="class-navigation">
-		<div class="left-nav" style="height: 100px;"> IMG</div>
-		<%= logo_small %>
-		<div style="float: right; padding-top: 15px;">
-			<div> Welcome <%= @user.user_name %> | <%= link_to 'Log out', signout_path %> </div>
-		</div>
-	</div>
-	<div class="clear"> </div>
-	<div id="main">
-		<div id="content-column">
-			<% 0.upto(2) do |column_number| %>
-				<div class="column" id="column<%=column_number%>">
-					<div style="padding: 5px">
-						<% @user.clazzs.to_a.every_third(column_number).each do |clazz| %>
-							<%= render clazz %>
-						<% end %>
-					</div>
+<div id="main">
+	<div id="content-column">
+		<% 0.upto(2) do |column_number| %>
+			<div class="column" id="column<%=column_number%>">
+				<div style="padding: 5px">
+					<% @user.clazzs.to_a.every_third(column_number).each do |clazz| %>
+						<%= render clazz %>
+					<% end %>
 				</div>
-			<% end %>
-		</div>
+			</div>
+		<% end %>
+	</div>
 
-	</div>
-	<div id="sidebar">
-		<div class="innertube">
-			<!--:remote=>true,-->
-			<h2><%= link_to '+ New Class', new_clazz_path, :remote=>true, :class=>'create_clazz' %></h2>
-			<div id="attachme"></div>
-		</div>
-	</div>
-	<div class="clear"> </div>
 </div>
+<div id="sidebar">
+	<div class="innertube">
+		<!--:remote=>true,-->
+		<h2><%= link_to '+ New Class', new_clazz_path, :remote=>true, :class=>'create_clazz' %></h2>
+		<div id="attachme"></div>
+	</div>
+</div>
+<div class="clear"> </div>

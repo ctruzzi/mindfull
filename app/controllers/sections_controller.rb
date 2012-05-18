@@ -25,10 +25,10 @@ class SectionsController < ApplicationController
   # GET /sections/new.json
   def new
     @section = Section.new
-
+    @section.clazz_id = params[:clazz]
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @section }
+      format.js
     end
   end
 
@@ -36,13 +36,17 @@ class SectionsController < ApplicationController
   # POST /sections.json
   def create
     #@section = current_user.clazzs.build(params[:section])
-    Section.new(params[:section])
-    
+    clazz = Clazz.find(params[:clazz_id])
+    #@section = Section.new(params[:section])
+    @section = clazz.sections.build(params[:section])
+
     respond_to do |format|
       if @section.save
         format.html { redirect_to @section, notice: 'Section was successfully created.' }
-        format.json { render json: @section, status: :created, location: @section }
+        #format.json { render json: @section, status: :created, location: @section } 
+        format.js
       else
+        #This currently works because we return the entire page.
         format.html { render action: "new" }
         format.json { render json: @section.errors, status: :unprocessable_entity }
       end
@@ -78,7 +82,8 @@ class SectionsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to sections_url }
-      format.json { head :no_content }
+      #format.json { head :no_content }
+      format.js { render :nothing => true }
     end
   end
 end

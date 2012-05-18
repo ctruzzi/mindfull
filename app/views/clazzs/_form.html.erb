@@ -1,5 +1,5 @@
 
-<%= form_for(@clazz, :remote => true, :html => {:method => :post, :class => "search_form general_form"}) do |f| %>
+<%= form_for(@clazz, :remote => true, :html => {:method => :post, :class => "search_form general_form", :style => 'height:100%;' }) do |f| %>
 
   <% if @clazz.errors.any? %>
     <div id="error_explanation">
@@ -17,7 +17,10 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="actions">
-     <%= f.submit :id => "clazz-create-submit" %>
+  <div class="float-down">
+    <div style="float: right;">
+       <%= f.submit "Create New Class", :id => "clazz-create-submit", :onclick => "$( '#popup' ).dialog( 'close' );"%>
+       <%= popup_cancel.html_safe %>
+    </div>
   </div>
 <% end %>

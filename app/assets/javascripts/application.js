@@ -14,58 +14,33 @@
 //= require jquery_ujs
 //= require_tree .
 
- jQuery(function($) {
+jQuery(function($) {
 	$('.delete_clazz').bind('ajax:success', function() {  
 	    $(this).closest('tr').fadeOut(); 
 	});
-	$('.create_clazz').bind('ajax:success', function(data, status, xhr) {  
-	    
-		$("#close").click(function(){
-			hidePopup();
-		});
+});	
 
-		$("#overlayEffect").click(function(){
-			hidePopup();
-		});
 
-		$("#clazz-create-submit").click(function(){
-			hidePopup();
-		});
-		$("form#clazz-create-submit").bind('ajax:success', function() {  
-		    alert("aahhhh");
-		}).bind('ajax:before', function() {
-			alert("hello")
-		});  
-
-		$("#overlayEffect").fadeIn("slow");
-		$("#popupContainer").fadeIn("slow");
-		$("#close").fadeIn("slow");
-	    center();
-		var popup = true;
-		$( ".draggable" ).draggable();
-
-		function center(){
-			var windowWidth = document.documentElement.clientWidth;
-			var windowHeight = document.documentElement.clientHeight;
-			var popupHeight = $("#popupContainer").height();
-			var popupWidth = $("#popupContainer").width();
-			$("#popupContainer").css({
-				"position": "absolute",
-				"top": windowHeight/2-popupHeight/2,
-				"left": windowWidth/2-popupWidth/2
-			});
-
-			}
-		function hidePopup(){
-			if(popup==true){
-				$("#overlayEffect").fadeOut("slow");
-				$("#popupContainer").fadeOut("slow");
-				$("#close").fadeOut("slow");
-				popup = false;
-			}
-		}
-
-	});
-
-	
+$(document).ready(function() {
+	addStyle();
+	resize();
 });
+
+$(window).resize(function() {
+	resize();
+});
+
+function addStyle() {
+	if(!$.browser.msie) {
+		$('#content').addClass('content-none-ie');
+	}
+}
+
+function resize() {
+	if($("#content").outerHeight() < $("body").height() - $("#header").height() - $("#footer").height()) {
+		$("#content").height(($("body").height() - $("#header").height()) - $("#footer").height() - ($("#content").outerHeight() - $("#content").height()) - 1);
+		$("#left-gradient").height($("body").height() - $("#header").height() - $("#footer").height());
+	} else {
+		$("#right-gradient").height($("#content").outerHeight());
+	}
+}
