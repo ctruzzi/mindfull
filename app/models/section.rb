@@ -13,7 +13,7 @@
 class Section < ActiveRecord::Base
 	attr_accessible :color, :title
 
-	belongs_to :clazzs
+	belongs_to :clazz, :class_name => "Clazz", :foreign_key => "clazz_id"
 	has_many :pages
 
 	validates :clazz_id,	:presence => true

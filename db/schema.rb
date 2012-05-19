@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20122516183618) do
+ActiveRecord::Schema.define(:version => 20122516183619) do
 
   create_table "clazzs", :force => true do |t|
     t.string   "name"
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(:version => 20122516183618) do
     t.integer  "user_id"
     t.string   "title"
     t.string   "custom"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "section_id"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "section_id", :limit => 255
   end
 
   create_table "sections", :force => true do |t|

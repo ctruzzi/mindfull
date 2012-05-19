@@ -28,7 +28,7 @@ class PagesController < ApplicationController
   # GET /pages/new.json
   def new
     @page = Page.new
-
+    @page.section_id = params[:section]
     respond_to do |format|
       format.html # new.html.erb
      #format.json { render json: @page }
@@ -44,13 +44,16 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
-    @page = Page.new(params[:page])
+    #params[:page][:section_id] = Section.find(params[:section_id])
+    params[:page][:section_id] = params[:section_id]
+    @page = current_user.pages.build(params[:page])
 
-    #hidden value for this one  <%= f.hidden_field :clazz_id, {:value => @section.clazz_id}  %>
+    #hidden value for this on e  <%= f.hidden_field :clazz_id, {:value => @section.clazz_id}  %>
     respond_to do |format|
       if @page.save
         format.html { redirect_to @page, notice: 'Page was successfully created.' }
-        format.json { render json: @page, status: :created, location: @page }
+        #format.json { render json: @page, status: :created, location: @page }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @page.errors, status: :unprocessable_entity }

@@ -1,4 +1,5 @@
-<%= form_for(@page) do |f| %>
+<%= form_for(@page, :remote => true, :html => {:method => :post, :class => "search_form general_form", :style => 'height:100%;' }) do |f| %>
+
   <% if @page.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
@@ -10,15 +11,8 @@
       </ul>
     </div>
   <% end %>
+  <%= hidden_field_tag(:section_id, @page.section_id ) %>
 
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :section_id %><br />
-    <%= f.number_field :section_id %>
-  </div>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -27,7 +21,11 @@
     <%= f.label :custom %><br />
     <%= f.text_field :custom %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="float-down">
+    <div style="float: right;">
+      <%= f.submit "Create New Page", :id => "page-create-submit", :onclick => "$( '#popup' ).dialog( 'close' );"%>
+      <%= popup_cancel.html_safe %>
+    </div>
   </div>
 <% end %>

@@ -15,6 +15,6 @@ end
 #  custom     :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
-#  section_id :string(255)
+#  section_id :integer(255)
 #
 

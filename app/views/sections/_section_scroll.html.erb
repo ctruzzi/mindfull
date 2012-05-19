@@ -1,0 +1,4 @@
+<%= render :partial => "pages/page_scroll", :collection => section_scroll.pages %>
+<li class="mini-box mini-box-add" id="page-add-<%= section_scroll.id %>">
+  <%= link_to section_scroll.id, {:controller => "pages", :action => "new", :section => section_scroll.id}, :remote=>true %>
+</li>

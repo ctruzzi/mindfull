@@ -37,11 +37,12 @@ class SectionsController < ApplicationController
   def create
     #@section = current_user.clazzs.build(params[:section])
     clazz = Clazz.find(params[:clazz_id])
-    #@section = Section.new(params[:section])
     @section = clazz.sections.build(params[:section])
 
     respond_to do |format|
       if @section.save
+        #add a default page in the section
+        @page = current_user.pages.create!({:title => "Default", :section_id => @section.id})
         format.html { redirect_to @section, notice: 'Section was successfully created.' }
         #format.json { render json: @section, status: :created, location: @section } 
         format.js

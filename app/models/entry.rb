@@ -17,6 +17,6 @@
 class Entry < ActiveRecord::Base
 	attr_accessible :text, :image_url, :custom_css, :xcoord, :ycoord
 
-	belongs_to :pages
+	belongs_to :page, :class_name => "Page", :foreign_key => "page_id"
 end
 

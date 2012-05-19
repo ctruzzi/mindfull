@@ -1,14 +1,17 @@
-<p id="notice"><%= notice %></p>
+<!-- Will be the URL -->
+<div id="class-scroller-container">
 
-<p>
-  <b>Name:</b>
-  <%= @clazz.name %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @clazz.user_id %>
-</p>
+		<!-- Call each Section now-->
+		<div class="float-down-zero">
+		<ul id="class-scroller">
+			<%= render :partial => "sections/section_scroll", :collection => @clazz.sections %>
+		</ul>
+		</div>
+</div>
+<section id="content">
+	<div id="notice"><%= notice %></div>
+	<!-- Not sure about container, but this is where the page canvas will go-->
+</div>
 
 
 <%= link_to 'Edit', edit_clazz_path(@clazz) %> |

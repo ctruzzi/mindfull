@@ -20,11 +20,15 @@ jQuery(function($) {
 	});
 });	
 
-
 $(document).ready(function() {
 	addStyle();
 	resize();
-});
+	$( "#class-scroller" ).sortable({
+		revert: true,
+		containment: "#class-scroller-container",
+		items: "li:not(.mini-box-add)"
+	});	
+})
 
 $(window).resize(function() {
 	resize();

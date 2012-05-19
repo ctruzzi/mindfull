@@ -30,6 +30,57 @@ h1 {
 	/*font-size: 36 pt; */
 }
 
+h5, h6 {
+	margin-bottom: 0px;
+}
+
+/* Should be all ul but needa change margin */
+ul#class-scroller {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+
+#left-nav {
+	width: 200px;
+	height: 60px;
+	background-color: #999000;
+	float: left;
+}
+
+#class-scroller-container {
+	height: 85px;
+	width: 100%;
+	background-color: #464646;
+	position: relative;
+}
+
+#class-scroller {
+	width: 100%;
+	background-color: #464646;
+	position: relative;
+	display:block;
+	padding-top: px;
+}
+
+
+/* Class for Preview Boxes */
+li.mini-box {
+	height: 75px;
+	min-width: 20px;
+	width: 75px;
+	background-color: #555555;
+	float: left;
+	margin: 1px 2px -2px 2px;
+	cursor: pointer;
+	margin-top: 8px;
+}
+
+li.mini-box-add {
+	width: 25px;
+}
+
 /* Pop Up CSS */
 .float-down {
 	float: right;
@@ -40,6 +91,17 @@ h1 {
 	width: 90%;
 }
 
+/* Pop Up CSS */
+.float-down-zero {
+	float: right;
+	/*width: 60%; 
+	height: 51px; */
+	position: absolute;
+	bottom: 2px;
+	width: 90%;
+}
+
+
 .container {
 	background: gray;
 }
@@ -47,13 +109,6 @@ h1 {
 .header {
 	height: 60px;
 	background:#999;
-}
-
-.left-nav {
-	width: 200px;
-	height: 60px;
-	background-color: #999000;
-	float: left;
 }
 
 .right {

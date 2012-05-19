@@ -1,8 +1,23 @@
 <div class="header">
-	<div id="" class="left-nav">
-		TEXT
-	</div>
-
+	<% if @clazz.nil? == true %>
+		<%= logo_small %>
+	<% else %>
+		<div id="left-nav">
+			<div style="height: 100%; width: 20px; float:left; background-color: #000999;"> </div>
+			<div style="padding-left: 10px; float: left;">
+				<h3><%= @clazz.name %></h3>
+				<h5>page</h5>
+			</div>
+			<%= link_to '', 'somewhere' %>
+			<script type="text/javascript">
+				$("#left-nav").click(function(){
+				     window.location=$(this).find("a").attr("href");
+				     return false;
+				});
+			</script>
+		</div>
+	<% end %>
+	
 	<div class="right-nav">
 		<div id="save-button" class="button" style="float: right">
 			SAVE

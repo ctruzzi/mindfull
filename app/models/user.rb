@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
 	attr_accessible :user_name, :email, :password, :password_confirmation
 
 	has_many :clazzs
+	has_many :pages
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	

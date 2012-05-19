@@ -9,12 +9,8 @@ module ApplicationHelper
 		end
 	end
 
-	def clazz_title 
-
-	end
-
 	def logo_small
-  		image_tag("logo_MindFull2.jpg", :alt => "digital notebook", :class => "round", :size => "118x79")
+  		link_to image_tag("logo_MindFull2.jpg", :alt => "digital notebook", :class => "round", :size => "118x79", :style => "float: left"), "root_path"
   	end
 
   	def popup_cancel 
