@@ -1,5 +1,5 @@
-<div class="clazz-box">
-	<div class="clazz-name"><h3><%= link_to clazz.name, clazz %> </h3></div>
+<div class="clazz-box shadow">
+	<div class="clazz-header"><h3><%= link_to clazz.name, clazz %> </h3></div>
 	<ul class="sections-list" id="section-<%= clazz.id %>">
 		<%= render :partial => "sections/section_list", :collection => clazz.sections %>
 		<li>

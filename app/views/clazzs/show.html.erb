@@ -2,10 +2,38 @@
 <div id="class-scroller-container">
 
 		<!-- Call each Section now-->
-		<div class="float-down-zero">
-		<ul id="class-scroller">
-			<%= render :partial => "sections/section_scroll", :collection => @clazz.sections %>
-		</ul>
+		<div class="float-down-zero" id="class-scroller-container-zero">
+		<!--<ul id="class-scroller"> -->
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("<%= @clazz.sections.collect {|x| "#section-scroll-#{x.id}" }.join(',')  %>").sortable({
+					revert: true,
+					containment: "#class-scroller-container",
+					connectWith: ".sections-scroll",
+					cancel: ".mini-box-add, .draggable-false"
+				}).bind( "sortreceive", function(event, ui) {
+					//Make async call to backend updating the item and change the color.
+					var item = ui.item;
+					item.css('background', ui.item.parent().attr('data-color'));	
+					//debugger;
+					$.ajax({
+						type: "PUT",
+						url: "/pages/" + item.attr('data-page-id'),
+						contentType: "application/json",
+						dataType: "JSON",
+						data: JSON.stringify({"section_id": item.parent().attr('data-scroll-id')}),
+						beforeSend: function ( xhr ) {
+					    xhr.setRequestHeader("Accept", "text/javascript");
+					  }
+					}).done(function ( data ) {
+					  
+					});			
+					$.ajaxSettings.accepts.html = $.ajaxSettings.accepts.script;		
+				});
+			})
+		</script>
+		<%= render :partial => "sections/section_scroll", :collection => @clazz.sections %>
+		<!--</ul> -->
 		</div>
 </div>
 <section id="content">

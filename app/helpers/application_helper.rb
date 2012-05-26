@@ -10,7 +10,11 @@ module ApplicationHelper
 	end
 
 	def logo_small
-  		link_to image_tag("logo_MindFull2.jpg", :alt => "digital notebook", :class => "round", :size => "118x79", :style => "float: left"), "root_path"
+  		link_to image_tag("logo_MindFull2.jpg", :alt => "digital notebook", :class => "round", :size => "118x79", :style => "float: left"), root_path
+  	end
+		
+  	def logo
+		link_to image_tag("logo_clear_200x184.png", :alt => "digital notebook", :size => "200x184", :style => "float: left"), root_path
   	end
 
   	def popup_cancel 

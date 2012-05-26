@@ -1,1 +1,7 @@
-$("<%= escape_javascript render :partial => 'page_scroll', :object => @page %>").insertBefore($('#page-add-<%= @page.section_id %>')).hide().fadeIn("slow");
+$("<%= escape_javascript render :partial => 'page_scroll', :object => @page, :locals => { :color => @page.section.color, :first_box => (@pageSize <= 1) } %>").insertBefore($('#page-add-<%= @page.section_id %>')).hide().fadeIn("slow");
+if(<%= @pageSize %> == 2) {
+	$('#section-scroll-6').children().each(function(index, li) {
+		$(li).removeClass('draggable-false').addClass('draggable-nav')
+	});
+}
+scrollerWidth();

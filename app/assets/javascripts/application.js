@@ -23,16 +23,24 @@ jQuery(function($) {
 $(document).ready(function() {
 	addStyle();
 	resize();
-	$( "#class-scroller" ).sortable({
-		revert: true,
-		containment: "#class-scroller-container",
-		items: "li:not(.mini-box-add)"
-	});	
+	scrollerWidth();
 })
 
 $(window).resize(function() {
 	resize();
 });
+
+function scrollerWidth() {
+	var sum=0;
+	$('#class-scroller-container-zero').children('ul').each( function(index, list){ sum += $(list).width(); });
+	if(sum <= $('#class-scroller-container').width()) {
+		$('#class-scroller-container-zero').width('100%');
+		$('#class-scroller-container').css('overflow-x', 'hidden')
+	} else {
+		$('#class-scroller-container-zero').width(sum);
+		$('#class-scroller-container').css('overflow-x', 'scroll')
+	}
+}
 
 function addStyle() {
 	if(!$.browser.msie) {

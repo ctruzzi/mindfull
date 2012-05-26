@@ -1,2 +1,5 @@
 Next steps:
-If we only have 1 item still in the "section" then we cannot move it!
+Next steps is making it so when we grow to large we can look to the side to see what the fuck is there!
+As well we need to make it so that when you move a page to a different section it updates the db and the color!
+
+After that we will go towards actually creating the fucking page canvas

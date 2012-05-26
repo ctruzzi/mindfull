@@ -1,12 +1,12 @@
 <div class="header">
 	<% if @clazz.nil? == true %>
-		<%= logo_small %>
+		<%= logo %>
 	<% else %>
 		<div id="left-nav">
-			<div style="height: 100%; width: 20px; float:left; background-color: #000999;"> </div>
+			<div style="height: 100%; width: 20px; float:left;"> </div>
 			<div style="padding-left: 10px; float: left;">
 				<h3><%= @clazz.name %></h3>
-				<h5>page</h5>
+				<p id="header-page-name" style="color:white;">page</p>
 			</div>
 			<%= link_to '', root_path %>
 			<script type="text/javascript">

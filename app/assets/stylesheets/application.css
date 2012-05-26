@@ -17,9 +17,8 @@ html {
 	margin:0;
 	padding:0;
 	color:#000;
-	background:#a7a09a;
-	font: normal small/1.4em Verdana, sans-serif;
-	font-family: Verdana, sans-serif;
+	font: normal small/1.4em Helvetica Neue light;
+	font-family: Helvetica Neue light;
 	height: 100%;
 }
 
@@ -34,18 +33,65 @@ h5, h6 {
 	margin-bottom: 0px;
 }
 
+h3 {
+	margin: 0;
+	font-weight:normal;
+}
+
 /* Should be all ul but needa change margin */
-ul#class-scroller {
+ul.class-scroller, ul.sections-scroll, ul.connectedSortable {
 	list-style-type:none;
 	margin:0;
 	padding:0;
-	overflow:hidden;
+	float: left;
+	display:block;
+	overflow:hidden
 }
+
+ul.inner-scroller {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+.shadow {
+	-moz-box-shadow: 3px 3px 3px #000;
+	-webkit-box-shadow: 3px 3px 3px #000;
+	box-shadow: 3px 3px 3px #000;
+
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#000000')";
+
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#000000');
+}
+
+.shadow-bottom {
+	-webkit-box-shadow: 0 8px 6px -6px #000;
+	   -moz-box-shadow: 0 8px 6px -6px #000;
+	        box-shadow: 0 8px 6px -6px #000;
+
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#000000')";
+
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#000000');
+}
+
+hr {
+  border-top: 1px dotted #f00;
+  color: #fff;
+  background-color: #fff;
+  height: 1px;
+  width:50%;
+}
+
+/* Unorganized things are below here. Above should be default things like shadow or styles that aren't page specific */
 
 #left-nav {
 	width: 200px;
 	height: 60px;
-	background-color: #999000;
+	/*background-color: #999000; */
 	float: left;
 	cursor: pointer;
 }
@@ -55,6 +101,9 @@ ul#class-scroller {
 	width: 100%;
 	background-color: #464646;
 	position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
 }
 
 #class-scroller {
@@ -79,7 +128,7 @@ li.mini-box {
 	width: 75px;
 	background-color: #555555;
 	float: left;
-	margin: 1px 2px -2px 2px;
+	margin: 0 2px 0 2px;
 	cursor: pointer;
 	margin-top: 8px;
 }
@@ -109,11 +158,9 @@ a.fill-div {
 /* Pop Up CSS */
 .float-down-zero {
 	float: right;
-	/*width: 60%; 
-	height: 51px; */
 	position: absolute;
-	bottom: 2px;
-	width: 90%;
+	width: 100%;
+	height: 75px;
 }
 
 .center {

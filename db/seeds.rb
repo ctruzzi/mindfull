@@ -41,12 +41,20 @@ clazzes = Array[
 	}
 ]
 
+COLORS = [{:color => "#EE5F33", :h_color => "#943820"}, 
+	{:color => "#F6AD4E", :h_color => "#B37A1E"}, 
+	{:color => "#80C152", :h_color => "#59873A"}, 
+	{:color => "#3AA7B6", :h_color => "#287580"}, 
+	{:color => "#EB3577", :h_color => "#96224C"}]
+
 #clazzes = Array[{ :title => "Spanish", :sections => ["Nouns", "Adverbs", "Adjectives", "Grammar", "Phrases", "Culture"]}, { :title => "Micro Bio 101", :sections => ["Food", "Biotechnology"]}]
 first_user = first_users[0]
 clazzes.each_with_index do |each_clazz, index| 
 	clazz = first_user.clazzs.create({:name => each_clazz[:title]})
-	each_clazz[:sections].each do |section_name|
-		clazz.sections.create({:title => section_name})
+	each_clazz[:sections].each_with_index do |section_name, inner_index|
+		the_section = clazz.sections.create({:title => section_name, :color => COLORS[inner_index % COLORS.size][:color]})
+		#For some reason the section isn't creating the default Page
+		first_user.pages.create!({:title => "Default", :section_id => the_section.id})
 	end
 end
 

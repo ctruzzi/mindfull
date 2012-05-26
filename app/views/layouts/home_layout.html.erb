@@ -9,12 +9,15 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="wrap" style="paddin-bottom: 10px">
-		<div id="header">
-			<%= logo_small %>
-			<div style="float: right; padding-top: 15px;">
-				<div> Welcome <%= @user.user_name %> | <%= link_to 'Log out', signout_path %> </div>
+	<div id="body" style="paddin-bottom: 10px">
+		<div id="header" class="shadow-bottom" style=" ">
+			<div id="header-main">
+				<%= logo %>
+				<div style="float: right; padding-top: 15px;">
+					<div> Welcome <%= @user.user_name %> | <%= link_to 'Log out', signout_path %> </div>
+				</div>
 			</div>
+			<div id="seperator"> </div>
 		</div>
 		<div class="clear"> </div>
 		<div id="content">

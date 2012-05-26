@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20122516183619) do
+ActiveRecord::Schema.define(:version => 20122516183620) do
 
   create_table "clazzs", :force => true do |t|
     t.string   "name"
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(:version => 20122516183619) do
 
   create_table "sections", :force => true do |t|
     t.integer  "clazz_id"
-    t.string   "color"
+    t.text     "color",      :limit => 255
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "users", :force => true do |t|

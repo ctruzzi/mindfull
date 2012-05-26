@@ -19,6 +19,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
 
     respond_to do |format|
+      @color = @page.section.color
       format.html # show.html.erb
       #format.json { render json: @page }
       format.js
@@ -52,6 +53,7 @@ class PagesController < ApplicationController
     #hidden value for this on e  <%= f.hidden_field :clazz_id, {:value => @section.clazz_id}  %>
     respond_to do |format|
       if @page.save
+        @pageSize = @page.section.pages.size
         format.html { redirect_to @page, notice: 'Page was successfully created.' }
         #format.json { render json: @page, status: :created, location: @page }
         format.js
@@ -66,11 +68,14 @@ class PagesController < ApplicationController
   # PUT /pages/1.json
   def update
     @page = Page.find(params[:id])
+    @page.section_id = params[:section_id] unless params[:section_id].nil? 
+    @page.title = params[:title] unless params[:title].nil? 
 
     respond_to do |format|
       if @page.update_attributes(params[:page])
         format.html { redirect_to @page, notice: 'Page was successfully updated.' }
-        format.json { head :no_content }
+        #ormat.json { head :no_content }
+        format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @page.errors, status: :unprocessable_entity }
