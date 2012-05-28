@@ -40,7 +40,10 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    @entry = Entry.new(params[:entry])
+    page = Page.find(params[:entry][:page_id])
+    params[:entry].delete("page_id")
+    @entry = page.entries.build(params[:entry])
+    #Entry.new(params[:entry])
 
     respond_to do |format|
       if @entry.save

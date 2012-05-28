@@ -1,3 +1,13 @@
 // Place all the styles related to the Entries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.image-box {
+	width:180px; 
+	height:240px;
+	float: left;
+	position: relative;
+	background-color: red;
+	margin: 8px;
+}

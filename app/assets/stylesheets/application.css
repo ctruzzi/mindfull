@@ -146,9 +146,9 @@ html ul.button-nav li ul.subnav li a:hover { /*--Hover effect for subnav links--
 #left-nav {
 	width: 200px;
 	height: 60px;
-	/*background-color: #999000; */
+	/*background-color: #999000;
+	cursor: pointer; */
 	float: left;
-	cursor: pointer;
 }
 
 #class-scroller-container {
