@@ -25,10 +25,10 @@ class EntriesController < ApplicationController
   # GET /entries/new.json
   def new
     @entry = Entry.new
-
+    @entry.page_id = params[:current_page].nil? ? "missing" : params[:current_page];
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @entry }
+      format.js
     end
   end
 

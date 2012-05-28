@@ -11,29 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :pageId %><br />
-    <%= f.number_field :pageId %>
-  </div>
+  <%= f.hidden_field(:page_id) %>
+
   <div class="field">
     <%= f.label :text %><br />
     <%= f.text_field :text %>
   </div>
   <div class="field">
-    <%= f.label :imageUrl %><br />
-    <%= f.text_field :imageUrl %>
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
   </div>
   <div class="field">
     <%= f.label :customCss %><br />
-    <%= f.text_field :customCss %>
-  </div>
-  <div class="field">
-    <%= f.label :xcoord %><br />
-    <%= f.number_field :xcoord %>
-  </div>
-  <div class="field">
-    <%= f.label :ycoord %><br />
-    <%= f.number_field :ycoord %>
+    <%= f.text_field :custom_css %>
   </div>
   <div class="actions">
     <%= f.submit %>

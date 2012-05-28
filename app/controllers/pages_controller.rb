@@ -17,7 +17,6 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
     @page = Page.find(params[:id])
-
     respond_to do |format|
       @color = @page.section.color
       format.html # show.html.erb

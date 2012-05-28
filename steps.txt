@@ -1,5 +1,10 @@
 Next steps:
-Next steps is making it so when we grow to large we can look to the side to see what the fuck is there!
-As well we need to make it so that when you move a page to a different section it updates the db and the color!
+Completed 90% of the scroller. It now needs to actually delete and scroll horizontally properly without the scroll bar (which should be just adding javascript)
 
-After that we will go towards actually creating the fucking page canvas
+Big part - First create the default entry box
+  - L x W defaults (Jade needs to give default images). 
+  - Needs to be draggable
+  - Needs to be able to put the overlay on (second button?)
+  - Needs to have the text show on overlay that is at a 50% show
+  - Needs to highlight key words (need some way to define key words)
+  - When the user switches pages, we need to confirm with them if they'd like to save prior to actually doing the change.

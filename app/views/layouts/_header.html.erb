@@ -2,7 +2,7 @@
 	<% if @clazz.nil? == true %>
 		<%= logo %>
 	<% else %>
-		<div id="left-nav">
+		<div id="left-nav" class="shadow">
 			<div style="height: 100%; width: 20px; float:left;"> </div>
 			<div style="padding-left: 10px; float: left;">
 				<h3><%= @clazz.name %></h3>
@@ -18,12 +18,41 @@
 		</div>
 	<% end %>
 	
-	<div class="right-nav">
-		<div id="save-button" class="button" style="float: right">
-			SAVE
-		</div>
-		<div id="new-button" class="button" style="float: right">
-			NEW
-		</div>
-	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled (Adds empty span tag after ul.subnav*)
+
+			$("ul.button-nav li span").click(function() { //When trigger is clicked...
+
+				//Following events are applied to the subnav itself (moving subnav up and down)
+				$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+				$(this).parent().hover(function() {
+				}, function(){
+					$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+				});
+
+				//Following events are applied to the trigger (Hover events for the trigger)
+				}).hover(function() {
+					$(this).addClass("subhover"); //On hover over, add class "subhover"
+				}, function(){	//On Hover Out
+					$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+			});
+
+		});
+	</script>
+
+	<ul class="button-nav right-nav">
+	    <li>
+	        <a href="#">New</a>
+	        <ul class="subnav">
+	            <li id="new-entry-button"><%= link_to '+Note', {:controller => "entries", :action => "new", :current_page => @current_page.id}, :remote => true %></li>
+	            <li><a href="#">+Page</a></li>
+				<li><%= link_to '+Section', new_clazz_path, :remote=>true, :class=>'create_clazz fill-div', :style => "padding-left: 10px;" %></li>
+	        </ul>
+	    </li>
+	    <li><a href="#">New Section</a></li>
+	</ul>
+
 </div>

@@ -26,7 +26,6 @@ h1 {
 	font-weight: normal;
 	margin-bottom: 2px;
 	font-size: 2.2em;
-	/*font-size: 36 pt; */
 }
 
 h5, h6 {
@@ -38,8 +37,13 @@ h3 {
 	font-weight:normal;
 }
 
+#container table {
+	background-color: green;
+}
+
 /* Should be all ul but needa change margin */
 ul.class-scroller, ul.sections-scroll, ul.connectedSortable {
+	height: 75px;
 	list-style-type:none;
 	margin:0;
 	padding:0;
@@ -78,13 +82,64 @@ ul.inner-scroller {
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#000000');
 }
 
-hr {
-  border-top: 1px dotted #f00;
-  color: #fff;
-  background-color: #fff;
-  height: 1px;
-  width:50%;
+ul.button-nav {
+	list-style: none;
+	margin: 0;
+	width: 200px;
+	background: url(button-nav_bg.gif) repeat-x;
 }
+ul.button-nav li {
+	float: left;
+	margin: 0;
+	padding: 0 15px 0 0;
+	position: relative; /*--Declare X and Y axis base for sub navigation--*/
+}
+ul.button-nav li a{
+	padding: 10px 5px;
+	color: #fff;
+	display: block;
+	text-decoration: none;
+	float: left;
+}
+ul.button-nav li a:hover{
+	background: url(button-nav_hover.gif) no-repeat center top;
+}
+ul.button-nav li span { /*--Drop down trigger styles--*/
+	width: 17px;
+	height: 35px;
+	float: left;
+	background: url(subnav_btn.gif) no-repeat center top;
+}
+ul.button-nav li span.subhover {background-position: center bottom; cursor: pointer;} /*--Hover effect for trigger--*/
+ul.button-nav li ul.subnav {
+	list-style: none;
+	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
+	left: 0; top: 35px;
+	background: #333;
+	margin: 0; padding: 0;
+	display: none;
+	float: left;
+	width: 80px;
+	border: 1px solid #111;
+}
+ul.button-nav li ul.subnav li{
+	margin: 0; padding: 0;
+	border-top: 1px solid #252525; /*--Create bevel effect--*/
+	border-bottom: 1px solid #444; /*--Create bevel effect--*/
+	clear: both;
+	width: 80px;
+	z-index: 1010;
+}
+html ul.button-nav li ul.subnav li a {
+	float: left;
+	width: 60px;
+	background: #333 no-repeat 10px center;
+	padding-left: 15px;
+}
+html ul.button-nav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
+	background: #222 no-repeat 10px center;
+}
+
 
 /* Unorganized things are below here. Above should be default things like shadow or styles that aren't page specific */
 
@@ -97,12 +152,13 @@ hr {
 }
 
 #class-scroller-container {
-	height: 85px;
+	height: 77px; /* Was 85 but needed to be changed */
 	width: 100%;
 	background-color: #464646;
 	position: relative;
     overflow-x: scroll;
     overflow-y: hidden;
+    z-index: 989;
 
 }
 
@@ -175,6 +231,8 @@ a.fill-div {
 .header {
 	height: 60px;
 	background:#999;
+	z-index: 990;
+	position: relative;
 }
 
 .right {
@@ -185,7 +243,7 @@ a.fill-div {
 
 .right-nav {
 	float: right;
-	min-width: 400px;
+	min-width: 200px;
 }
 
 .clear {

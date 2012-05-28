@@ -15,6 +15,13 @@ class ClazzsController < ApplicationController
   def show
     @clazz = Clazz.find(params[:id])
 
+    if(params[:current].nil?)
+      @current_page = @clazz.sections.first.pages.first
+    else
+      @current_page = Section.find(params[:current]).pages.first
+    end
+    @current_page_id = @current_page.id
+    @color = @current_page.section.color
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @clazz }
