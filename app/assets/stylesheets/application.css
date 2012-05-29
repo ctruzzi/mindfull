@@ -82,39 +82,60 @@ ul.inner-scroller {
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#000000');
 }
 
+li a#show-text-btn {
+	text-indent: -9999px;
+	height: 25px;
+	width: 29px;
+	
+}
+
+li a.show-text-btn-on {
+	background: url(show_buttons.png) no-repeat 0px 0px;
+}
+
+li a.show-text-btn-off {
+	background: url(show_buttons.png) no-repeat -32px 0px;
+}
+
 ul.button-nav {
 	list-style: none;
 	margin: 0;
 	width: 200px;
-	background: url(button-nav_bg.gif) repeat-x;
 }
 ul.button-nav li {
 	float: left;
-	margin: 0;
 	padding: 0 15px 0 0;
 	position: relative; /*--Declare X and Y axis base for sub navigation--*/
+	margin-top: 10px;
 }
 ul.button-nav li a{
-	padding: 10px 5px;
-	color: #fff;
 	display: block;
 	text-decoration: none;
 	float: left;
 }
+
+/**  Will Give us a different image */
 ul.button-nav li a:hover{
-	background: url(button-nav_hover.gif) no-repeat center top;
+	/*background: url(new_button_body_hover.png) no-repeat center top; */
 }
+
 ul.button-nav li span { /*--Drop down trigger styles--*/
-	width: 17px;
+	width: 21px;
 	height: 35px;
 	float: left;
-	background: url(subnav_btn.gif) no-repeat center top;
+	background: url(drop_down_buttons.png) no-repeat -4px 0;
 }
-ul.button-nav li span.subhover {background-position: center bottom; cursor: pointer;} /*--Hover effect for trigger--*/
+ul.button-nav li span.subhover {
+	/*background-position: center bottom; */
+	cursor: pointer; 
+	/*background: url(subnav_btn_hover.png) no-repeat center top; */
+	background: url(drop_down_buttons.png) no-repeat -30px 0;
+} /*--Hover effect for trigger--*/
+
 ul.button-nav li ul.subnav {
 	list-style: none;
 	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
-	left: 0; top: 35px;
+	left: 0; top: 25px;
 	background: #333;
 	margin: 0; padding: 0;
 	display: none;

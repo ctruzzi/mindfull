@@ -11,6 +11,7 @@
 #
 
 class Section < ActiveRecord::Base
+	serialize :color
 	attr_accessible :color, :title
 
 	belongs_to :clazz, :class_name => "Clazz", :foreign_key => "clazz_id"

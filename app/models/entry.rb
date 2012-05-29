@@ -51,7 +51,7 @@ class Entry < ActiveRecord::Base
 		i = 0;
 		while i < hash[:count]  do
 		   hash[:entry_path] = (rand(folder_count * folder_count) % folder_count) + 1
-		   file_path = Dir["#{DEFAULT_DIRECTORY}/#{hash[:folder_index]}/#{hash[:entry_path]}/#{getImgCount(hash)}*"]
+		   file_path = Dir["#{DEFAULT_DIRECTORY}/#{hash[:folder_index]}/#{hash[:entry_path]}/#{getRndImgFromSubDir(hash)}*"]
 		   output_array << (file_path.nil? ? "" : file_path[0])
 		   i +=1;
 		end
@@ -62,8 +62,9 @@ class Entry < ActiveRecord::Base
 		#Call Subdir to get random image
 	end
 
-	def getRndImgFromSubDir(directory)
-
+	def getRndImgFromSubDir(hash)
+		count = getImgCount(hash)
+		rand(count * count) % count + 1
 	end
 
 	private

@@ -9,12 +9,6 @@
 				<p id="header-page-name" style="color:white;">page</p>
 			</div>
 			<%= link_to '', root_path %>
-			<script type="text/javascript">
-				/*$("#left-nav").click(function(){
-				     window.location=$(this).find("a").attr("href");
-				     return false;
-				}); */
-			</script>
 		</div>
 	<% end %>
 	
@@ -45,14 +39,16 @@
 
 	<ul class="button-nav right-nav">
 	    <li>
-	        <a href="#">New</a>
+	        <%= link_to image_tag("new_button_body.png", :alt => "+Note", :size => "36x25", :style => "float: left"), {:controller => "entries", :action => "new", :current_page => @current_page.nil? ? "none" : @current_page.id }, :remote => true %>
 	        <ul class="subnav">
-	            <li id="new-entry-button"><%= link_to '+Note', {:controller => "entries", :action => "new", :current_page => @current_page.nil? ? "none" : @current_page.id }, :remote => true %></li>
 	            <li><a href="#">+Page</a></li>
 				<li><%= link_to '+Section', new_clazz_path, :remote=>true, :class=>'create_clazz fill-div', :style => "padding-left: 10px;" %></li>
 	        </ul>
 	    </li>
-	    <li><a href="#">Show Text</a></li>
+	    <li>
+	    	<%= link_to 'Show Text', '#', :id => 'show-text-btn', :class => 'show-text-btn-on' %>
+	    </li>
+	   
 	</ul>
 
 </div>

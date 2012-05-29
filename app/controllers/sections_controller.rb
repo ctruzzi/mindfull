@@ -37,7 +37,7 @@ class SectionsController < ApplicationController
   def create
     #@section = current_user.clazzs.build(params[:section])
     clazz = Clazz.find(params[:clazz_id])
-    params[:section][:color] = Section.getColor(0)[:color]
+    params[:section][:color] = Section.getColor(clazz.sections.size)
     @section = clazz.sections.build(params[:section])
 
     respond_to do |format|

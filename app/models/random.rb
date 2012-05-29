@@ -22,3 +22,6 @@ puts some_var.rindex('.')
 puts some_var[some_var.rindex('/'), some_var.rindex('.')]
 t = "0123456789"
 puts t[t.rindex('2'), t.rindex('3')]
+
+ve = "234x321"
+p ve.split("x")

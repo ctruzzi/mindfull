@@ -6,11 +6,32 @@
 .image-box {
 	float: left;
 	position: relative;
-	background-color: red;
 	margin: 8px;
 }
 
 .image-box-default {
 	width:180px; 
 	height:240px;
+}
+
+.image-overlay-text {
+	position: absolute;
+	display: none;
+	opacity:0.9;
+	filter:alpha(opacity=90); /* For IE8 and earlier */
+}
+
+.arrow-overlay {
+	display: none;
+	background:#A8A8A8 url(back_button.png) no-repeat 7px center;
+	position: absolute;
+	opacity:0.85;
+	filter:alpha(opacity=85); /* For IE8 and earlier */
+	width: 40px;
+	height: 100%;
+}
+
+.right-arrow {
+	background:#A8A8A8 url(forward_button.png) no-repeat 10px center;
+	right: 0;
 }

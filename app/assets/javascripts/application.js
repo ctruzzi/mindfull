@@ -14,21 +14,37 @@
 //= require jquery_ujs
 //= require_tree .
 
+$(document).ready(function() {
+	addStyle();
+	resize();
+	scrollerWidth();
+
+	$('#show-text-btn').click(function(event){
+		$(this).toggleClass("show-text-btn-on").toggleClass("show-text-btn-off")
+		$(".image-overlay-text").toggle("slide", { direction: "down" }, 1000);
+	  	event.preventDefault(); // Prevent link from following its href
+	});
+
+/*
+	$('.image-box').hover(
+		function(event) {
+			debugger;
+		},
+		function(event) {
+			debugger;
+		}) */
+})
+
+$(window).resize(function() {
+	resize();
+});
+
 jQuery(function($) {
 	$('.delete_clazz').bind('ajax:success', function() {  
 	    $(this).closest('tr').fadeOut(); 
 	});
 });	
 
-$(document).ready(function() {
-	addStyle();
-	resize();
-	scrollerWidth();
-})
-
-$(window).resize(function() {
-	resize();
-});
 
 function scrollerWidth() {
 	var sum=0;

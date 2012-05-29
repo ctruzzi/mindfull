@@ -2,7 +2,15 @@
 <%= @image_array %>
 <br/><br/>
 <%= @image_name %>
-<div id="entry-<%=@entry.id%>" class="image-box">
-  <%= image_tag(@entry.image, :alt => "img", :size => @entry.image_size, :style => "float: left") %>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#entry-<%=@entry.id%>").click(function () {
+      $("#something").show("slide", { direction: "down" }, 1000);
+    });
 
+  });
+</script>
+<div id="entry-<%=@entry.id%>" class="image-box">
+ <div id="something" style="margin: 0px; width: 100px; height: 80px; background: green; border: 1px solid black; position: relative; z-index: 994; position: absolute; display:none;"></div>
+  <%= image_tag(@entry.image, :alt => "img", :size => @entry.image_size, :style => "float: lef; z-index: 992;", :id => "text-id") %>
 </div>

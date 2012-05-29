@@ -52,7 +52,7 @@ first_user = first_users[0]
 clazzes.each_with_index do |each_clazz, index| 
 	clazz = first_user.clazzs.create({:name => each_clazz[:title]})
 	each_clazz[:sections].each_with_index do |section_name, inner_index|
-		the_section = clazz.sections.create({:title => section_name, :color => COLORS[inner_index % COLORS.size][:color]})
+		the_section = clazz.sections.create({:title => section_name, :color => COLORS[inner_index % COLORS.size]})
 		#For some reason the section isn't creating the default Page
 		first_user.pages.create!({:title => "Default", :section_id => the_section.id})
 	end

@@ -3,4 +3,8 @@
 -->
 <div id="entry-<%= entry.id %>" class="image-box">
 	<%= image_tag(entry.image, :alt => "img", :size => entry.image_size, :style => "float: left") %>
+	<% sizes = entry.image_size.split('x') %>
+	<div class="image-overlay-text" style="width:<%=sizes[0]%>px; height:<%=sizes[1]%>px; background-color:<%=color%>;"><%= entry.text %> </div>
+	<div class="arrow-overlay"></div>
+	<div class="arrow-overlay right-arrow"> </div>
 </div>

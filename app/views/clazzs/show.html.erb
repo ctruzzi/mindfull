@@ -40,39 +40,33 @@
 				});			
 				$.ajaxSettings.accepts.html = $.ajaxSettings.accepts.script;		
 			}
-
-			function getPage() {
-				$.ajax({
-					type: "GET",
-					url: "/pages/1",
-					contentType: "application/json",
-					dataType: "JSON",
-					success: function(data){
-                         alert('finished');
-                    },
-					//data: JSON.stringify({"section_id": item.parent().attr('data-scroll-id')}),
-					beforeSend: function ( xhr ) {
-				    xhr.setRequestHeader("Accept", "text/javascript");
-				  }
-				}).done(function ( data ) {
-				  alert('done')
-				});			
-				$.ajaxSettings.accepts.html = $.ajaxSettings.accepts.script;		
-			}
 		</script>
 		<%= render :partial => "sections/section_scroll", :collection => @clazz.sections %>
 		<!--</ul> -->
 		</div>
 </div>
 <section id="content">
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('.image-box').hover(
+			function(event) {
+				var image_box = event.currentTarget
+				$(image_box).children('.arrow-overlay').toggle();
+			},
+			function(event) {
+				var image_box = event.currentTarget
+				$(image_box).children('.arrow-overlay').toggle();
+			})
+	})
+	</script>
 	<div id="notice"><%= notice %></div>
 
 	<div id="page-canvas" class="center">
 		<script type="text/javascript">
-			$('#left-nav').css('background-color', '<%= @color %>')
+			$('#left-nav').css('background-color', '<%= @color[:color] %>')
 			$('#header-page-name').text("<%= @current_page.title %>")
 		</script>
-		<%= render(@current_page) %>
+		<%= render :partial => "entries/entry", :collection => @current_page.entries, :locals => { :color => @current_page.section.color[:color] } %>
 	</div>
 	<!-- Not sure about container, but this is where the page canvas will go-->
 </div>
