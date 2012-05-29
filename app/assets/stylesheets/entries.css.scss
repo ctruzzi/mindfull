@@ -4,10 +4,13 @@
 
 
 .image-box {
-	width:180px; 
-	height:240px;
 	float: left;
 	position: relative;
 	background-color: red;
 	margin: 8px;
+}
+
+.image-box-default {
+	width:180px; 
+	height:240px;
 }

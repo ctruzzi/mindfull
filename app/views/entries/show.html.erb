@@ -1,4 +1,8 @@
+<%= @index_count %>
+<%= @image_array %>
+<br/><br/>
+<%= @image_name %>
 <div id="entry-<%=@entry.id%>" class="image-box">
-
+  <%= image_tag(@entry.image, :alt => "img", :size => @entry.image_size, :style => "float: left") %>
 
 </div>

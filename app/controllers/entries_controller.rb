@@ -14,7 +14,16 @@ class EntriesController < ApplicationController
   # GET /entries/1.json
   def show
     @entry = Entry.find(params[:id])
+    hash = {:folder_index => 7, :entry_path => 1}
+    @index_count = @entry.getImgCount(hash)
 
+    hash.delete("entry_path")
+    hash[:count] = 5;
+    @image_array = @entry.getRndImgFromDir(hash)
+    @image_name = @entry.image.split("/").last().split("_").last().split(".").first()
+    img = @entry.image
+    #@image_name = img[img.rindex('/')+1, img.length][img.rindex('_'), img.length]
+    #.split(".")[0]
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @entry }
@@ -42,9 +51,20 @@ class EntriesController < ApplicationController
   def create
     page = Page.find(params[:entry][:page_id])
     params[:entry].delete("page_id")
+    #Check if we can hit a helper method!
+    #We need to check if theres a section directory with same (ie not a default)
+    #IF 'default' randomly choose 7 pictures from all pictures of that specific directory
+    #Else randomly choose 7 images from all pictures
+    #Store these!!!
     @entry = page.entries.build(params[:entry])
     #Entry.new(params[:entry])
 
+    #CHANGE 7 to section directory
+    hash = {:folder_index => 7, :count => 5}
+    image_array = @entry.getRndImgFromDir(hash)
+    @entry.optional_images = image_array
+    @entry.image = image_array[0]
+    @entry.image_size = @entry.image.split("/").last().split("_").last().split(".").first()
     respond_to do |format|
       if @entry.save
         format.html { redirect_to @entry, notice: 'Entry was successfully created.' }

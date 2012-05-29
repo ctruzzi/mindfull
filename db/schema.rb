@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20122516183620) do
+ActiveRecord::Schema.define(:version => 20122516183622) do
 
   create_table "clazzs", :force => true do |t|
     t.string   "name"
@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(:version => 20122516183620) do
   create_table "entries", :force => true do |t|
     t.integer  "page_id"
     t.string   "text"
-    t.string   "image_url"
+    t.string   "image"
     t.string   "custom_css"
-    t.integer  "xcoord"
-    t.integer  "ycoord"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "optional_images"
+    t.string   "image_size"
   end
 
   create_table "pages", :force => true do |t|

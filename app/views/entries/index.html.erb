@@ -4,10 +4,10 @@
   <tr>
     <th>Pageid</th>
     <th>Text</th>
-    <th>Imageurl</th>
+    <th>Image</th>
+    <th>Image Size</th>
     <th>Customcss</th>
-    <th>Xcoord</th>
-    <th>Ycoord</th>
+    <th>Image Choices</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,10 +17,10 @@
   <tr>
     <td><%= entry.page_id %></td>
     <td><%= entry.text %></td>
-    <td><%= entry.image_url %></td>
+    <td><%= entry.image %></td>
+    <td><%= entry.image_size %></td>
     <td><%= entry.custom_css %></td>
-    <td><%= entry.xcoord %></td>
-    <td><%= entry.ycoord %></td>
+    <td><%= entry.optional_images %></td>
     <td><%= link_to 'Show', entry %></td>
     <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
     <td><%= link_to 'Destroy', entry, confirm: 'Are you sure?', method: :delete %></td>

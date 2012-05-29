@@ -4,7 +4,7 @@
 #
 #  id         :integer         not null, primary key
 #  clazz_id   :integer
-#  color      :string(255)
+#  color      :text(255)
 #  title      :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null

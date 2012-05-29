@@ -2,5 +2,5 @@
  Have draggable installed. Need to just make all them draggable in some javascript forloop that looks at the ID and then just does it. Then need to add resizable to that as well.
 -->
 <div id="entry-<%= entry.id %>" class="image-box">
-
+	<%= image_tag(entry.image, :alt => "img", :size => entry.image_size, :style => "float: left") %>
 </div>

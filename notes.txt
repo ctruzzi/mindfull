@@ -1,7 +1,8 @@
 To get the tests running (currently growl doesn't show every time)
 1) spork --bootstrap
 2) spork
-3) autotest (may not be needed if growl doesn't work but may also increase speed 5x)
+3) autotest (may not be needed if growl doesn't work but may also 
+increase speed 5x)
 4) rspec spec/
 
 To currently be able to ctrl+c to end the server start it with
