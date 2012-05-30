@@ -1,10 +1,8 @@
 Next steps:
 Completed 90% of the scroller. It now needs to actually delete and scroll horizontally properly without the scroll bar (which should be just adding javascript)
 
-Big part - First create the default entry box
-  - L x W defaults (Jade needs to give default images). 
-  - Needs to be draggable
-  - Needs to be able to put the overlay on (second button?)
-  - Needs to have the text show on overlay that is at a 50% show
-  - Needs to highlight key words (need some way to define key words)
+
+NEW!!!
   - When the user switches pages, we need to confirm with them if they'd like to save prior to actually doing the change.
+  - Save the height and width (specific location)
+

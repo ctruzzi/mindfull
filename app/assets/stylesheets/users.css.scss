@@ -28,9 +28,7 @@ h1, h2, h3 {
 	background: #D0D0D0;
 }
 
-#content {
-	position: relative;
-	z-index: 989;
+.content-home {
 	background: -webkit-gradient(linear, left top, left bottom, from(#3D3D3D), to(#737374));
 	background: -moz-linear-gradient(top,  #3D3D3D,  #737374);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3D3D3D', endColorstr='#737374');

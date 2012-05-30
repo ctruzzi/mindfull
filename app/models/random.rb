@@ -16,12 +16,5 @@ end
 
 =end
 
-some_var = "entry_images/7/6/5_425x283.jpeg"
-
-puts some_var.rindex('.')
-puts some_var[some_var.rindex('/'), some_var.rindex('.')]
-t = "0123456789"
-puts t[t.rindex('2'), t.rindex('3')]
-
-ve = "234x321"
-p ve.split("x")
+some_array = ["2", "1", "5", "0", "3"]
+puts some_array.index("5")

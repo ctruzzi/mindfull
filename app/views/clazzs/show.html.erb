@@ -40,27 +40,21 @@
 				});			
 				$.ajaxSettings.accepts.html = $.ajaxSettings.accepts.script;		
 			}
-		</script>
+	</script>
 		<%= render :partial => "sections/section_scroll", :collection => @clazz.sections %>
 		<!--</ul> -->
 		</div>
 </div>
-<section id="content">
-	<script type="text/javascript">
-	$(document).ready(function() {
-		$('.image-box').hover(
-			function(event) {
-				var image_box = event.currentTarget
-				$(image_box).children('.arrow-overlay').toggle();
-			},
-			function(event) {
-				var image_box = event.currentTarget
-				$(image_box).children('.arrow-overlay').toggle();
-			})
-	})
-	</script>
+<section id="content" class="content-class">
 	<div id="notice"><%= notice %></div>
 
+	<script type="text/javascript">
+	$(document).ready(function() {
+
+
+
+	});
+	</script>
 	<div id="page-canvas" class="center">
 		<script type="text/javascript">
 			$('#left-nav').css('background-color', '<%= @color[:color] %>')

@@ -19,21 +19,70 @@ $(document).ready(function() {
 	resize();
 	scrollerWidth();
 
+	isShowText = false;
+	isChanging = false;
 	$('#show-text-btn').click(function(event){
 		$(this).toggleClass("show-text-btn-on").toggleClass("show-text-btn-off")
 		$(".image-overlay-text").toggle("slide", { direction: "down" }, 1000);
+		isShowText = !isShowText
 	  	event.preventDefault(); // Prevent link from following its href
 	});
 
-/*
-	$('.image-box').hover(
-		function(event) {
-			debugger;
-		},
-		function(event) {
-			debugger;
-		}) */
+	pageSetListeners();
 })
+
+function pageSetListeners() {
+	$('.image-box').on({
+		mouseenter: mouseImageEnter,
+		mouseleave: mouseImageLeave
+	});
+
+	$('.arrow-overlay').on({click: arrowClick})
+	$('.image-box').draggable({ containment: "#page-canvas", scroll: true, scrollSensitivity: 100 });
+}
+
+function mouseImageEnter() {
+	if(!isShowText)
+		$(this).children('.arrow-overlay').show(); 
+}
+
+function mouseImageLeave() {
+	if(!isShowText)
+		$(this).children('.arrow-overlay').hide();
+}
+
+function arrowClick() {
+	if(!isChanging) {
+		isChanging = true;
+
+		isBack = $(this).attr('class').indexOf("right-arrow") < 0; //false if less then 0
+		parent_id = $(this).parent().attr("id");
+		image_id = 'display-image-' + parent_id;
+		img_index = parseInt($('#current-img-'+parent_id).val())
+		img_array = $('#optional-images-'+parent_id).val().split(",")
+
+		if(isBack) {
+			img_index = --img_index < 0 ? img_array.length - 1 : img_index;
+		} else {
+			img_index = ++img_index > img_array.length - 1 ? 0 : img_index;
+		}
+
+		new_img = img_array[img_index];
+		size = new_img.substring(new_img.lastIndexOf("_")+1,new_img.lastIndexOf(".")).split("x")
+		image_tag = '<img alt="img" width="' + size[0] + '" height="' + size[1] +'"  id="' + image_id + '-new" src="/assets/' + new_img + '" style="float: left; display:none" >'
+
+		$(image_tag).appendTo("#" + parent_id)
+
+		$('#'+image_id).fadeOut('slow', function() {
+			$('#' +image_id +'-new').fadeIn('slow', function() {
+				$('#'+image_id).remove();
+				this.id = image_id;
+				isChanging = false;
+			});
+		});
+		$('#current-img-'+parent_id).val(img_index)
+	}
+}
 
 $(window).resize(function() {
 	resize();

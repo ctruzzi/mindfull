@@ -17,15 +17,11 @@
     <%= f.label :text %><br />
     <%= f.text_field :text %>
   </div>
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :customCss %><br />
-    <%= f.text_field :custom_css %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="float-down">
+    <div style="float: right;">
+       <%= f.submit "New Note", :id => "entry-create-submit", :onclick => "$( '#popup' ).dialog( 'close' );"%>
+       <%= popup_cancel.html_safe %>
+    </div>
   </div>
 <% end %>

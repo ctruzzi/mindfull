@@ -4,7 +4,7 @@
 
 
 .image-box {
-	float: left;
+	/*float: left;*/
 	position: relative;
 	margin: 8px;
 }
@@ -15,6 +15,8 @@
 }
 
 .image-overlay-text {
+	width: 100%;
+	height: 100%;
 	position: absolute;
 	display: none;
 	opacity:0.9;
@@ -23,7 +25,7 @@
 
 .arrow-overlay {
 	display: none;
-	background:#A8A8A8 url(back_button.png) no-repeat 7px center;
+	background: url(reverse_button.png) no-repeat 0 center;
 	position: absolute;
 	opacity:0.85;
 	filter:alpha(opacity=85); /* For IE8 and earlier */
@@ -32,6 +34,6 @@
 }
 
 .right-arrow {
-	background:#A8A8A8 url(forward_button.png) no-repeat 10px center;
+	background: url(forward_button.png) no-repeat 10px center;
 	right: 0;
 }

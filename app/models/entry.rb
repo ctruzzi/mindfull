@@ -16,6 +16,7 @@
 
 class Entry < ActiveRecord::Base
 	serialize :optional_images
+	serialize :custom_css
 	attr_accessible :text, :image, :custom_css, :optional_images, :image_size
 
 	belongs_to :page, :class_name => "Page", :foreign_key => "page_id"

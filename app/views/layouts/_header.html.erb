@@ -39,10 +39,11 @@
 
 	<ul class="button-nav right-nav">
 	    <li>
-	        <%= link_to image_tag("new_button_body.png", :alt => "+Note", :size => "36x25", :style => "float: left"), {:controller => "entries", :action => "new", :current_page => @current_page.nil? ? "none" : @current_page.id }, :remote => true %>
+	        <%= link_to image_tag("Newnote.png", :alt => "+Note", :size => "56x26", :style => "float: left"), {:controller => "entries", :action => "new", :current_page => @current_page.nil? ? "none" : @current_page.id }, :remote => true %>
 	        <ul class="subnav">
 	            <li><a href="#">+Page</a></li>
 				<li><%= link_to '+Section', new_clazz_path, :remote=>true, :class=>'create_clazz fill-div', :style => "padding-left: 10px;" %></li>
+				<li><a href="#">Save</a></li>
 	        </ul>
 	    </li>
 	    <li>
