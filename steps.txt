@@ -4,5 +4,5 @@ Completed 90% of the scroller. It now needs to actually delete and scroll horizo
 
 NEW!!!
   - When the user switches pages, we need to confirm with them if they'd like to save prior to actually doing the change.
-  - Save the height and width (specific location)
+  - Save the height and width (specific location)	
 

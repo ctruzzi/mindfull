@@ -29,6 +29,14 @@ $(document).ready(function() {
 	});
 
 	pageSetListeners();
+
+	//Setting some overlay
+	var $overlay = $('<div class="ui-widget-overlay" id="custom-overlay" style="z-index:999;"></div>').hide().appendTo('body');
+
+    $('#save-all-btn').click(function(){
+        //$('#custom-overlay').fadeIn();
+        //setOverlayDimensionsToCurrentDocumentDimensions(); //remember to call this when the document dimensions change
+    });
 })
 
 function pageSetListeners() {
@@ -56,9 +64,10 @@ function arrowClick() {
 		isChanging = true;
 
 		isBack = $(this).attr('class').indexOf("right-arrow") < 0; //false if less then 0
+		parent = $(this).parent();
 		parent_id = $(this).parent().attr("id");
 		image_id = 'display-image-' + parent_id;
-		img_index = parseInt($('#current-img-'+parent_id).val())
+		img_index = parseInt(parent.attr("data-current-img-loc"))
 		img_array = $('#optional-images-'+parent_id).val().split(",")
 
 		if(isBack) {
@@ -80,12 +89,18 @@ function arrowClick() {
 				isChanging = false;
 			});
 		});
-		$('#current-img-'+parent_id).val(img_index)
+		parent.attr("data-current-img-loc", img_index);
 	}
+}
+
+function setOverlayDimensionsToCurrentDocumentDimensions() {
+    $('#custom-overlay').width($(document).width());
+    $('#custom-overlay').height($(document).height());
 }
 
 $(window).resize(function() {
 	resize();
+	setOverlayDimensionsToCurrentDocumentDimensions();
 });
 
 jQuery(function($) {

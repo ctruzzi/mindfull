@@ -87,11 +87,10 @@ ul.inner-scroller {
 	z-index: 989;
 }
 
-li a#show-text-btn {
+li a#show-text-btn, li a#save-all-btn {
 	text-indent: -9999px;
-	height: 25px;
+	height: 26px;
 	width: 31px;
-	
 }
 
 li a.show-text-btn-on {
@@ -100,6 +99,10 @@ li a.show-text-btn-on {
 
 li a.show-text-btn-off {
 	background: url(Text_Btn.png) no-repeat -31px 0px;
+}
+
+li a.save-btn {
+		background: url(Save.png) no-repeat 0px 1px;
 }
 
 ul.button-nav {
@@ -128,7 +131,7 @@ ul.button-nav li span { /*--Drop down trigger styles--*/
 	width: 25px;
 	height: 26px;
 	float: left;
-	background: url(Newnote_arrow.png) no-repeat 0 -1px;
+	background: url(Newnote_arrow.png) no-repeat 0 0;
 }
 ul.button-nav li span.subhover {
 	/*background-position: center bottom; */
@@ -158,7 +161,7 @@ ul.button-nav li ul.subnav li{
 }
 html ul.button-nav li ul.subnav li a {
 	float: left;
-	width: 60px;
+	width: 65px;
 	background: #333 no-repeat 10px center;
 	padding-left: 15px;
 }

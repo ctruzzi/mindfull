@@ -1,11 +1,9 @@
 <% sizes = entry.image_size.split('x') %>
-<div id="entry-<%= entry.id %>" class="image-box shadow" style="background-color: black; position: absolute;">
+<div id="entry-<%= entry.id %>" data-entry-id="<%=entry.id%>" data-current-img-loc="<%=entry.optional_images.index(entry.image)%>" class="image-box shadow" style="background-color: black; position: absolute;">
 	<%= image_tag(entry.image, :alt => "img", :size => entry.image_size, :style => "float: left", :id => "display-image-entry-#{entry.id}") %>
-	<!-- width:<%=sizes[0]%>px; height:<%=sizes[1]%>px; -->
 	<div class="image-overlay-text" style="background-color:<%=color%>;"><%= entry.text %> </div>
 	<div class="arrow-overlay"></div>
 	<div class="arrow-overlay right-arrow"> </div>
-
-	<input type="hidden" id="current-img-entry-<%=entry.id%>" value="<%= entry.optional_images.index(entry.image) %>" />
+	
 	<input type="hidden" id="optional-images-entry-<%=entry.id%>" value="<%=entry.optional_images.join(',') %>" />
 </div>

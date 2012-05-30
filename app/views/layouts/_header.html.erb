@@ -16,22 +16,24 @@
 		$(document).ready(function(){
 
 			$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled (Adds empty span tag after ul.subnav*)
-
+			
 			$("ul.button-nav li span").click(function() { //When trigger is clicked...
 
-				//Following events are applied to the subnav itself (moving subnav up and down)
-				$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
-
-				$(this).parent().hover(function() {
-				}, function(){
+				if($("ul.subnav").is(":visible")) {
+					//We are hiding it
 					$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
-				});
-
-				//Following events are applied to the trigger (Hover events for the trigger)
-				}).hover(function() {
-					$(this).addClass("subhover"); //On hover over, add class "subhover"
-				}, function(){	//On Hover Out
 					$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+				} else {
+					//We are showing it
+					$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+					$(this).parent().hover(function() {
+					}, function(){
+						$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+						//debugger;
+						$(this).children('.subhover').removeClass("subhover"); //On hover out, remove class "subhover"
+					});	
+					$(this).addClass("subhover"); //On hover over, add class "subhover"				
+				}
 			});
 
 		});
@@ -39,15 +41,26 @@
 
 	<ul class="button-nav right-nav">
 	    <li>
-	        <%= link_to image_tag("Newnote.png", :alt => "+Note", :size => "56x26", :style => "float: left"), {:controller => "entries", :action => "new", :current_page => @current_page.nil? ? "none" : @current_page.id }, :remote => true %>
+	        <%= link_to image_tag("Newnote.png", :alt => "+Note", :size => "56x26", :style => "float: left"), {:controller => "entries", :action => "new", :current_page => @current_page.nil? ? "none" : @current_page.id }, :remote => true, :id => "new-entry-button" %>
 	        <ul class="subnav">
 	            <li><a href="#">+Page</a></li>
-				<li><%= link_to '+Section', new_clazz_path, :remote=>true, :class=>'create_clazz fill-div', :style => "padding-left: 10px;" %></li>
-				<li><a href="#">Save</a></li>
+				<li><%= link_to '+Section', new_clazz_path, :remote=>true, :class=>'create_clazz fill-div' %></li>
 	        </ul>
 	    </li>
 	    <li>
 	    	<%= link_to 'Show Text', '#', :id => 'show-text-btn', :class => 'show-text-btn-on' %>
+	    </li>
+	    <script type="text/javascript">
+	    $(document).ready(function() {
+		    /* Move to application.js once it's finished */
+		    $('#save-all-btn').click(function(event){
+		    	
+		    });
+
+		})
+	    </script>
+	    <li>
+	    	<%= link_to 'Show Text', '#', :id => 'save-all-btn', :class => 'save-btn' %>
 	    </li>
 	   
 	</ul>

@@ -1,0 +1,2 @@
+$('<%= escape_javascript render :partial => "entries/entry", :collection => [@entry], :locals => { :color => @entry.page.section.color[:color] }  %>').appendTo($('#page-canvas')).hide().fadeIn();
+pageSetListeners();
