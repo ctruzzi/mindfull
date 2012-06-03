@@ -5,8 +5,6 @@ class CreateEntries < ActiveRecord::Migration
       t.string :text
       t.string :image_url
       t.string :custom_css
-      t.integer :xcoord
-      t.integer :ycoord
 
       t.timestamps
     end

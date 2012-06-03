@@ -1,1 +1,3 @@
-<%= render :partial => "entries/entry", :collection => page.entries, :locals => { :color => page.section.color[:color] } %>
+<div id="page-canvas" class="center" data-page-id="<%= page.id %>">
+	<%= render :partial => "entries/entry", :collection => page.entries, :locals => { :color => page.section.color[:color] } %>
+</div>

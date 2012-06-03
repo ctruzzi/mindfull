@@ -47,20 +47,12 @@
 </div>
 <section id="content" class="content-class">
 	<div id="notice"><%= notice %></div>
-
 	<script type="text/javascript">
-	$(document).ready(function() {
-
-
-
-	});
+		$('#left-nav').css('background-color', '<%= @color[:color] %>')
+		$('#header-page-name').text("<%= @current_page.title %>")
 	</script>
-	<div id="page-canvas" class="center">
-		<script type="text/javascript">
-			$('#left-nav').css('background-color', '<%= @color[:color] %>')
-			$('#header-page-name').text("<%= @current_page.title %>")
-		</script>
-		<%= render :partial => "entries/entry", :collection => @current_page.entries, :locals => { :color => @current_page.section.color[:color] } %>
-	</div>
+	
+	<%= render :partial => @current_page %>
+	
 	<!-- Not sure about container, but this is where the page canvas will go-->
 </div>

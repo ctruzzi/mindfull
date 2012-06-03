@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20122516183623) do
+ActiveRecord::Schema.define(:version => 20122516183624) do
 
   create_table "clazzs", :force => true do |t|
     t.string   "name"
@@ -27,22 +27,27 @@ ActiveRecord::Schema.define(:version => 20122516183623) do
     t.string   "custom_css"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "image_size"
     t.string   "optional_images"
+    t.string   "image_size"
   end
 
-  create_table "page_canvas", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "images", :force => true do |t|
+    t.string   "first_level"
+    t.string   "second_level"
+    t.string   "image_url"
+    t.integer  "x"
+    t.integer  "y"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "pages", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
     t.string   "custom"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "section_id"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "section_id", :limit => 255
   end
 
   create_table "sections", :force => true do |t|

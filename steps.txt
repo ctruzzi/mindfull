@@ -3,6 +3,18 @@ Completed 90% of the scroller. It now needs to actually delete and scroll horizo
 
 
 NEW!!!
-  - When the user switches pages, we need to confirm with them if they'd like to save prior to actually doing the change.
-  - Save the height and width (specific location)	
+	! We need to finish the seed.rb so that it adds all of the images into the database
+		- Seed should be able to create a new entry with the tex for those pages
+		- Seed adds all of the images (should do that currently) to the database
+	! Change log in screen and if logged out to redirect
+	! Need to change seed.rb to actually add entries to the initial pages.
+	! Need to add the images as well.
+	! Create home page
+	- Change add section to be inline (so that it's a text input with an okay button)
+	- Add the create new class to the rendered page so we are not ajax calling it
+	- Add capabilities to move a note from one page to another by having them draggable to a target.
+		- We need to see if we can actually do this.
 
+
+Images
+First level is class, second level is section, third level is a note. When we add it to the database we don't care about the note level except when writing the it. 

@@ -39,6 +39,7 @@ $(document).ready(function() {
     });
 })
 
+
 function pageSetListeners() {
 	$('.image-box').on({
 		mouseenter: mouseImageEnter,
@@ -68,16 +69,18 @@ function arrowClick() {
 		parent_id = $(this).parent().attr("id");
 		image_id = 'display-image-' + parent_id;
 		img_index = parseInt(parent.attr("data-current-img-loc"))
-		img_array = $('#optional-images-'+parent_id).val().split(",")
+		img_opt_length = parseInt(parent.attr("data-img-count"))
 
 		if(isBack) {
-			img_index = --img_index < 0 ? img_array.length - 1 : img_index;
+			img_index = --img_index < 0 ? img_opt_length - 1 : img_index;
 		} else {
-			img_index = ++img_index > img_array.length - 1 ? 0 : img_index;
+			img_index = ++img_index > img_opt_length - 1 ? 0 : img_index;
 		}
 
-		new_img = img_array[img_index];
-		size = new_img.substring(new_img.lastIndexOf("_")+1,new_img.lastIndexOf(".")).split("x")
+		// img_array[img_index];
+		new_img = $('#optional-images-' + parent_id + '-'+img_index).val()
+		size = new_img.match(/_[0-9]+x[0-9]+./)[0].replace(/[_.]/g, "").split("x")
+		//size = new_img.substring(new_img.lastIndexOf("_")+1,new_img.lastIndexOf(".")).split("x")
 		image_tag = '<img alt="img" width="' + size[0] + '" height="' + size[1] +'"  id="' + image_id + '-new" src="/assets/' + new_img + '" style="float: left; display:none" >'
 
 		$(image_tag).appendTo("#" + parent_id)

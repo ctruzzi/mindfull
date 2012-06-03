@@ -19,8 +19,8 @@ class Entry < ActiveRecord::Base
 	serialize :custom_css
 	attr_accessible :text, :image, :custom_css, :optional_images, :image_size
 
+	#has_many :image, :class_name => 'Image', :foreign_key => 'optional_images'
 	belongs_to :page, :class_name => "Page", :foreign_key => "page_id"
-	
 	DEFAULT_DIRECTORY = "entry_images"
 
 	#Gets us image count of the subdirectory
@@ -36,9 +36,6 @@ class Entry < ActiveRecord::Base
 	def getFolderCount(directory)
 		inner_path = directory.nil? ? "" : "/#{directory}"
 		Dir.entries("#{DEFAULT_DIRECTORY}#{inner_path}").size - 2
-		#Dir.glob(File.join("#{inner_path}", '**', '*')).select { |file| File.file?(file) }.count
-		#File.dirname(__FILE__) 
-		#Dir.entries('7').select {|entry| File.directory? File.join('/your_dir',entry) and !(entry =='.' || entry == '..') }
 	end
 
 	#If we get say 7, then we get count of folders, choose one and randomly choose one 
