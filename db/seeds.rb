@@ -11,10 +11,10 @@ class SeedHelper
 		{ :title => "Spanish", 
 			:sections => ["Nouns", "Adverbs", "Adjectives", "Grammar", "Phrases", "Culture"]
 		}, { :title => "Micro Bio 101", 
-			:sections => ["Food", "Biotechnology"]
+			:sections => ["Bacteriology", "Immunology", "Parasitology", "Virology"]
 		}, {
 			:title => "Socioecology", 
-			:sections => ["Social Systems", "Adaptive Significance", "Ecology"]
+			:sections => ["Social Systems", "Social Mobility", "Stratification"]
 		}, {
 			:title => "Anthropology", 
 			:sections => ["Early Human Society"]
@@ -32,7 +32,7 @@ class SeedHelper
 			:sections => ["Human Disease", "Cultural Behavior", "Natural Habitat", "Determinism", "Cultural Selection", "Gene Flow"]
 		}, {
 			:title => "Philosophy",
-			:sections => ["Foundations", "Nature of reality", "Nature of morality"]
+			:sections => ["5th-16th Century", "20th Century", "Logic"]
 		}
 	]
 
@@ -53,13 +53,21 @@ class SeedHelper
 		CLAZZES.each_with_index do |each_clazz, index| 
 			clazz = first_user.clazzs.create({:name => each_clazz[:title]})
 			each_clazz[:sections].each_with_index do |section_name, inner_index|
-				the_section = clazz.sections.create({:title => section_name, :color => COLORS[inner_index % COLORS.size]})
+
+				the_section = clazz.sections.create({:title => section_name, :color => getColor(inner_index)})
 				#For some reason the section isn't creating the default Page
 				first_user.pages.create!({:title => "Default", :section_id => the_section.id})
 			end
 		end
 	end
 
+	def getColor(value) 
+		if value > COLORS.size 
+			COLORS[value]
+		else
+			COLORS[value % COLORS.size]
+		end
+	end
 	DEFAULT_DIRECTORY = "/app/assets/images/entry_images"
 	def setUpImageDB
 		directory = Dir.pwd

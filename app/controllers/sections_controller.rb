@@ -40,6 +40,7 @@ class SectionsController < ApplicationController
     params[:section][:color] = Section.getColor(clazz.sections.size)
     @section = clazz.sections.build(params[:section])
 
+    #SOMETHING IN HERE IS NOT WORKING!!!
     respond_to do |format|
       if @section.save
         #add a default page in the section

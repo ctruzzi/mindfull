@@ -55,6 +55,8 @@ function pageSetListeners() {
 function clazzPageSetListeners() {
 	$('a.clazz-add').on({click: addSectionListener})
 	$('li.add-section-button').on({click: ignoreGlobal})
+	$('.class_button').on({click: clazzPopup})
+	
 	$(document).on({click: hideAllAddSection})
 }
 
@@ -86,6 +88,7 @@ function addSectionListener() {
 	if(div_form.css("display") == "none") {
 		//Display
 		div_form.css("display", "block")
+		div_form.find(".section_title")[0].focus()
 		anchor.html("-")
 	} else {
 		//Hide
@@ -93,6 +96,10 @@ function addSectionListener() {
 	}
 	event.stopPropagation(); 
 	return false;
+}
+
+function clazzPopup() {
+	$( "#clazz-popup" ).dialog({ height: 140, modal: true, title: "Create New Class"} );
 }
 
 function mouseImageEnter() {

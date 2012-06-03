@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <script type="text/javascript">
 	$(document).ready(function(){
-
-
 	});
 </script>
 <div id="main">
@@ -22,8 +20,13 @@
 <div id="sidebar">
 	<div class="class_button shadow">
 		<!--:remote=>true,-->
-		<h3><%= link_to '+ New Class', new_clazz_path, :remote=>true, :class=>'create_clazz fill-div', :style => "padding-left: 10px;" %></h3>
+		<h3 style="padding-left: 10px;">+ New Class
+			<!-- <%= link_to '+ New Class', new_clazz_path, :remote=>true, :class=>'create_clazz fill-div', :style => "padding-left: 10px;" %> -->
+			</h3>
 		<div id="attachme"></div>
 	</div>
 </div>
 <div class="clear"> </div>
+<div id="clazz-popup">
+	<%= render :partial => "clazzs/form", :collection => [Clazz.new], :as => :clazz %>
+</div>

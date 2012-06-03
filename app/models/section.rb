@@ -27,7 +27,8 @@ class Section < ActiveRecord::Base
 		{:color => "#EB3577", :h_color => "#96224C"}]
 
 	def self.getColor(value) 
-		if value > COLORS.size 
+		p "LOOOOOOOOOOOOK value[#{value}]         #{value > COLORS.size }"
+		if value < COLORS.size 
 			COLORS[value]
 		else
 			COLORS[value % COLORS.size]

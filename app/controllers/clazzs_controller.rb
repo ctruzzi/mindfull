@@ -19,6 +19,7 @@ class ClazzsController < ApplicationController
       @current_page = @clazz.sections.first.pages.first
     else
       @current_page = Section.find(params[:current]).pages.first
+      @color = @current_page.section.color[:color]
     end
     @current_page_id = @current_page.id
     @color = @current_page.section.color

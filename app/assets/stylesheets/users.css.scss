@@ -53,7 +53,12 @@ h1, h2, h3 {
 	padding-top: 10px;
 }
 
+#clazz-popup {
+	display: none;
+}
+
 .class_button {
+	cursor: pointer;
 	padding: 5px 0;
 	margin: 10px;
 	margin-top: 5px;

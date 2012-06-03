@@ -21,7 +21,7 @@
   <div class="float-down">
     <div style="float: right;">
        <%= f.submit "New Note", :id => "entry-create-submit", :onclick => "$( '#popup' ).dialog( 'close' );"%>
-       <%= popup_cancel.html_safe %>
+       <%= popup_cancel("popup").html_safe %>
     </div>
   </div>
 <% end %>

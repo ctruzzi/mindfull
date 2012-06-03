@@ -17,7 +17,7 @@ module ApplicationHelper
 		link_to image_tag("logo_clear_200x184.png", :alt => "digital notebook", :size => "200x184", :style => "float: left"), root_path
   	end
 
-  	def popup_cancel 
-  		"<input id='popup-cancel' name='popup-cancel' type='button' value='Cancel' onclick=\"$( '#popup' ).dialog( 'close' );\"/>"
+  	def popup_cancel(id)
+  		"<input id='popup-cancel' name='popup-cancel' type='button' value='Cancel' onclick=\"$( '##{id}' ).dialog( 'close' );\"/>"
   	end
 end

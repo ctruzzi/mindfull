@@ -1,12 +1,11 @@
+<%= form_for(clazz, :remote => true, :html => {:method => :post, :class => "search_form general_form", :style => 'height:100%;' }) do |f| %>
 
-<%= form_for(@clazz, :remote => true, :html => {:method => :post, :class => "search_form general_form", :style => 'height:100%;' }) do |f| %>
-
-  <% if @clazz.errors.any? %>
+  <% if clazz.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@clazz.errors.count, "error") %> prohibited this clazz from being saved:</h2>
+      <h2><%= pluralize(clazz.errors.count, "error") %> prohibited this clazz from being saved:</h2>
 
       <ul>
-      <% @clazz.errors.full_messages.each do |msg| %>
+      <% clazz.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -19,8 +18,8 @@
   </div>
   <div class="float-down">
     <div style="float: right;">
-       <%= f.submit "Create New Class", :id => "clazz-create-submit", :onclick => "$( '#popup' ).dialog( 'close' );"%>
-       <%= popup_cancel.html_safe %>
+       <%= f.submit "Create New Class", :id => "clazz-create-submit", :onclick => "$( '#clazz-popup' ).dialog( 'close' );"%>
+       <%= popup_cancel("clazz-popup").html_safe %>
     </div>
   </div>
 <% end %>

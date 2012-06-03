@@ -5,15 +5,23 @@ Completed 90% of the scroller. It now needs to actually delete and scroll horizo
 NEW!!!
 	! We need to finish the seed.rb so that it adds all of the images into the database
 		- Seed should be able to create a new entry with the tex for those pages
-		- Seed adds all of the images (should do that currently) to the database
-	! Change log in screen and if logged out to redirect
+		- (Finished) Seed adds all of the images (should do that currently) to the database
+	! FRONT PAGE
+		- Change log in screen
+		- Redirect if logged out
 	! Need to change seed.rb to actually add entries to the initial pages.
 	! Need to add the images as well.
 	! Create home page
-	- Change add section to be inline (so that it's a text input with an okay button)
-	- Add the create new class to the rendered page so we are not ajax calling it
+	- (Finished) Change add section to be inline (so that it's a text input with an okay button)
+	- (Finished) Add the create new class to the rendered page so we are not ajax calling it
 	- Add capabilities to move a note from one page to another by having them draggable to a target.
 		- We need to see if we can actually do this.
+	- Page Canvas Changes
+		- None ajax call for creating new page (form popup)
+		- Create Page should not ask about custom css.
+		- Trash Can in right corner shows when moving item and if dragged there gets deleted
+		- Add Page button needs to be implemented (give option of what section to add to via dropdown)
+		- Add Section button needs to be implemented 
 
 
 Images
