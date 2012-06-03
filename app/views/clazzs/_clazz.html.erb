@@ -2,8 +2,16 @@
 	<div class="clazz-header"><h3><%= link_to clazz.name, clazz %> </h3></div>
 	<ul class="sections-list" id="section-<%= clazz.id %>">
 		<%= render :partial => "sections/section_list", :collection => clazz.sections %>
-		<li>
-			<%= link_to '+', {:controller => "sections", :action => "new", :clazz => clazz.id}, :remote=>true %>
+		<li  class="add-section-button">
+			<div style="display:none">
+				<form accept-charset="UTF-8" action="/sections" class="new_section" data-remote="true" id="new_section" method="post">
+					<input id="clazz_id_<%=clazz.id%>" name="clazz_id" type="hidden" value="<%= clazz.id%>">
+					<input id="section_title_<%=clazz.id%>" class="section_title" name="section[title]" size="20" type="text">
+					<input id="section-create-submit__<%=clazz.id%>" name="commit" type="submit" value="New Section">
+				</form>
+			</div>
+			<%= link_to '+', '', :class => "clazz-add", 'data-clazz-id' => "#{clazz.id}", :id =>"clazz-add-#{clazz.id}", :remote=>true %>
 		</li>
+		<!-- {:controller => "sections", :action => "new", :clazz => clazz.id} -->
 	</ul>
 </div>

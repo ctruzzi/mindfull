@@ -29,6 +29,7 @@ $(document).ready(function() {
 	});
 
 	pageSetListeners();
+	clazzPageSetListeners();
 
 	//Setting some overlay
 	var $overlay = $('<div class="ui-widget-overlay" id="custom-overlay" style="z-index:999;"></div>').hide().appendTo('body');
@@ -47,13 +48,58 @@ function pageSetListeners() {
 	});
 
 	$('.arrow-overlay').on({click: arrowClick})
+	
 	$('.image-box').draggable({ containment: "#page-canvas", scroll: true, scrollSensitivity: 100 });
+}
+
+function clazzPageSetListeners() {
+	$('a.clazz-add').on({click: addSectionListener})
+	$('li.add-section-button').on({click: ignoreGlobal})
+	$(document).on({click: hideAllAddSection})
+}
+
+//Simply hide all of the ones shown.
+function hideAllAddSection() {
+	$(".add-section-button").each(function(index, item) {
+		theChildren = $(item).children();
+		$(theChildren[0]).css("display", "none")
+		$(theChildren[1]).html("+")
+	});
+	//alert("hide")
+}
+
+function hideAddSection(id) {
+	var anchor = $("#clazz-add-" + id)
+	div_form = $(anchor.siblings("div")[0])
+	div_form.css("display", "none")
+	var input = $(div_form.find(".section_title")[0])
+	input.val("")
+	anchor.html("+")
+}
+function ignoreGlobal() {
+	event.stopPropagation(); 
+}
+
+function addSectionListener() {
+	var anchor = $(this);
+	div_form = $(anchor.siblings("div")[0])
+	if(div_form.css("display") == "none") {
+		//Display
+		div_form.css("display", "block")
+		anchor.html("-")
+	} else {
+		//Hide
+		hideAddSection(anchor.attr("data-clazz-id"))
+	}
+	event.stopPropagation(); 
+	return false;
 }
 
 function mouseImageEnter() {
 	if(!isShowText)
 		$(this).children('.arrow-overlay').show(); 
 }
+
 
 function mouseImageLeave() {
 	if(!isShowText)

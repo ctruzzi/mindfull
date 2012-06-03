@@ -77,3 +77,8 @@ ul.sections-list {
 ul.sections-list li:not(:last-child) {
 	border-bottom: 1px dotted white;
 }
+
+li.add-section-button {
+	padding-left: 20px;
+	margin-left: -20px;
+}

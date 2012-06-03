@@ -1,1 +1,2 @@
 $("<%= escape_javascript render :partial => 'section_list', :object => @section %>").insertBefore($('#section-<%= @section.clazz_id %>').children().last()).hide().fadeIn("slow");
+hideAddSection("<%= @section.clazz_id %>");

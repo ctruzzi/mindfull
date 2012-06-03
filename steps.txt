@@ -17,4 +17,4 @@ NEW!!!
 
 
 Images
-First level is class, second level is section, third level is a note. When we add it to the database we don't care about the note level except when writing the it. 
+First level is class, second level is section, third level is a note. When we add it to the database we don't care about the note level except when writing the it. 	
