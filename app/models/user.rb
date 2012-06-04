@@ -44,8 +44,8 @@ class User < ActiveRecord::Base
 	#Call encrypt_password method prior to saving in active record
 	before_save :encrypt_password
 
-	def self.authenticate(user_name,submitted_password)
-		user = find_by_user_name(user_name)
+	def self.authenticate(user,submitted_password)
+		
 		return nil if user.nil? #return nil if we cannot find user
 		return user if user.has_password?(submitted_password)
 		#returns nil if doesn't meet either

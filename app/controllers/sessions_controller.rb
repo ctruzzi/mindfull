@@ -1,11 +1,21 @@
 class SessionsController < ApplicationController
   def new
-  	@title = "Sign in"
+	@title = "Sign in"
   	render :layout => 'signin_layout'
   end
   
   def create
-  	user = User.authenticate(params[:session][:user_name],"")
+    user = User.find_by_user_name(params[:session][:user_name])
+    if user.nil?
+      params[:session][:email] = "temp@temp.com"
+      user = User.new(params[:session])
+      user.save
+      #add the categories for the customer
+    else
+      user = User.authenticate(user,"")
+    end
+    
+    #Check if the user exists, if it doesn't then create it
   	if user.nil?
   		#User is nil menaing we didn't find that email address
   		flash.now[:error] = "Invalid email"
