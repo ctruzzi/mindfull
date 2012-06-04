@@ -43,3 +43,7 @@ View production.log
 
 Another way to do partials
 <%= #render :partial => 'clazzs/single', :locals => {:some_variable => "somevalue", :some_other_variable => clazz} %>
+
+
+PRODUCTION MODE
+

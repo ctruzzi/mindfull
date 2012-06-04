@@ -1,0 +1,1 @@
+In deductive reasoning, an argument is constructed by showing a conclusion necessarily follows from a certain set of premises. Such an argument is called a syllogism.
