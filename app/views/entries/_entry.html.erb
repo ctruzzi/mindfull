@@ -7,7 +7,7 @@
 		<% end %>
 		<input type="hidden" id="optional-images-entry-<%=entry.id%>-<%=index%>" value="<%=image.imageString()%>" />
 	<% end%>
-	<div class="image-overlay-text" style="background-color:<%=color%>;"><%= entry.text %> </div>
+	<div class="image-overlay-text" style="background-color:<%=color%>;"><div style="height: 100%; overflow: hidden; padding: 0 10px;"><%= entry.text %></div></div>
 	<div class="arrow-overlay"></div>
 	<div class="arrow-overlay right-arrow"> </div>
 </div>

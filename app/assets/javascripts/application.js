@@ -23,13 +23,23 @@ $(document).ready(function() {
 	isChanging = false;
 	$('#show-text-btn').click(function(event){
 		$(this).toggleClass("show-text-btn-on").toggleClass("show-text-btn-off")
-		$(".image-overlay-text").toggle("slide", { direction: "down" }, 1000);
+		//debugger;
+		//If show-text-btn-off then we show, else we hide. 
+		if($(this).hasClass("show-text-btn-off")) {
+			//Show stuff
+			$(".image-overlay-text").show("slide", { direction: "down" }, 1000);
+		} else {
+			//Hide stuff
+			$(".image-overlay-text").hide("slide", { direction: "down" }, 1000);
+		}
+		
 		isShowText = !isShowText
 	  	event.preventDefault(); // Prevent link from following its href
 	});
 
 	pageSetListeners();
 	clazzPageSetListeners();
+	scrollSetListeners();
 
 	//Setting some overlay
 	var $overlay = $('<div class="ui-widget-overlay" id="custom-overlay" style="z-index:999;"></div>').hide().appendTo('body');
@@ -52,6 +62,20 @@ function pageSetListeners() {
 	$('.image-box').draggable({ containment: "#page-canvas", scroll: true, scrollSensitivity: 100 });
 }
 
+function scrollSetListeners() {
+	$('.mini-box').on({click: dontgetSelectedPage});
+}
+
+
+function dontgetSelectedPage() {
+	//Check if object has class of selected, if so return false. else return true
+	if($(this).hasClass('mini-box-selected')) {
+		return false;
+	} else {
+		return true
+	}
+}
+
 function clazzPageSetListeners() {
 	$('a.clazz-add').on({click: addSectionListener})
 	$('li.add-section-button').on({click: ignoreGlobal})
@@ -67,7 +91,6 @@ function hideAllAddSection() {
 		$(theChildren[0]).css("display", "none")
 		$(theChildren[1]).html("+")
 	});
-	//alert("hide")
 }
 
 function hideAddSection(id) {
@@ -78,6 +101,7 @@ function hideAddSection(id) {
 	input.val("")
 	anchor.html("+")
 }
+
 function ignoreGlobal() {
 	event.stopPropagation(); 
 }

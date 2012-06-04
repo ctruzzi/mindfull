@@ -1,2 +1,5 @@
 $('<%= escape_javascript render :partial => "entries/entry", :collection => [@entry], :locals => { :color => @entry.page.section.color[:color], :image => @current_image }  %>').appendTo($('#page-canvas')).hide().fadeIn();
 pageSetListeners();
+if($('#show-text-btn').hasClass("show-text-btn-off")) {
+	$($('#entry-<%=@entry.id %>').children('.image-overlay-text')).show();
+}
