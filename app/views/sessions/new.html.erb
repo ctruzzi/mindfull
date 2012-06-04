@@ -1,19 +1,27 @@
-<div class="text_centered">
-	<h1>Welcome to Digital Notebook</h1>
+<div class="logo-text center" style="width:75%; color:white;">
+	<div class="top-log-in">
+		<h1 style="color:black">Welcome to Mindful</h1>
 
-	<p class="center">
-		This is a tutorial of what digital notebook is. Digital notebook is a customizable digital notebook that associates familiar or memorable images and sounds to unfamiliar text to improve memorization.
-	</p>
+		<p style="font-size: 12px; line-height: 15px;">
+			Mindful is a customizable digital notebook that associates familiar or
+			memorable images to unfamiliar text you are trying to memorize. By
+			taking pictures of your hand written notes Mindful digitizes them and
+			stores them on it’s online application for easy access. Here you can
+			organize and arrange as you like. enter your email to give it a try.
+		</p>
+	</div>
+	<div class="bottom-log-in">
 
-	<%= form_for(:session, :url => sessions_path) do |f| %>
+		<%= form_for(:session, :url => sessions_path, :html => {:name => 'sign_in'})  do |f| %>
 
-		<div class="field">
-			<%= f.label :email %>:
-			<%= f.text_field :email %>
-		</div>
-		<div class="actions">
-			<%= f.submit "Get Started" %>
-		</div>
-	<% end %>
-	<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+				<%= f.label :email %>:
+				<%= f.text_field :email, :style => "margin-left: 10px;" %>
+			
+				<div class="sign-in-button" >
+					<a href="javascript:document.sign_in.submit()" class="fill-div" style="padding-left: 10px;">Get started</a>
+				</div>
+			
+		<% end %>
+	</div>
+
 </div>

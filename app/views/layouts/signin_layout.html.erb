@@ -8,8 +8,10 @@
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
 </head>
-<body>
-	<div class="center">
+<body style="margin-top: -20px;">
+	
+	<div class="center" style="padding-top:100px; width: 541px;">
+		<%=	 image_tag("BoxBack.png", :alt => "No Alt", :size => "541x299") %>
 		<%= yield %>
 	</div>
 </body>
