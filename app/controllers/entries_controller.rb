@@ -59,8 +59,9 @@ class EntriesController < ApplicationController
     outer_level = page.section.clazz.id;
     inner_level = page.section.clazz.sections.index(page.section) + 1
     #inner_level = page.section.id
-    possible_images = Image.find(:all, :conditions => ["first_level = ? and second_level = ?", outer_level, inner_level])
+    possible_images = Image.find(:all, :conditions => ["first_level = ? and second_level = ?", outer_level, inner_level], :select => 'id')
     p "outer #{outer_level}   inner #{inner_level} img# #{possible_images.size}"
+    p "#{possible_images}"
     image_choices = []
     if(possible_images.size == 0) 
       #Find Random images (do by id)
@@ -79,13 +80,12 @@ class EntriesController < ApplicationController
     else
       #Just choose 5 random from specific folder
       p "CHOOOOOOSE 5 pictures"
-      temp = []
+      image_choices = []
       for i in 0..4
         begin
-          input = rand(possible_images.size) + 1
-        end while temp.include? input
-        temp << input
-        image_choices << possible_images[input]
+          input = possible_images[rand(possible_images.size)].id #Grab the index
+        end while image_choices.include? input
+        image_choices << input
       end 
       p "#{image_choices}"
     end

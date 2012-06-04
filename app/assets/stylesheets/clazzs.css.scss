@@ -8,7 +8,7 @@ h3 {
 }
 
 .clazz-box {
-	/*max-width: 250px;*/
+	max-width: 250px;
 	min-height: 80px;
 	margin-bottom: 10px;
 	background: #C6322A;
@@ -24,5 +24,14 @@ h3 {
 .content-class {
 	position: relative;
 	z-index: 989;
+	height: 900px;
 	background-color: #F1F1F1;
+}
+
+.fill-add-div {
+	display: block;
+	padding-top: 45px;
+	padding-bottom: 4px;
+	width:100%;
+	text-decoration: none;
 }

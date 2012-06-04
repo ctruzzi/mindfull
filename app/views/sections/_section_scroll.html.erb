@@ -1,11 +1,9 @@
 <ul class="sections-scroll" id="section-scroll-<%= section_scroll.id %>" 
 	data-box-size="<%= section_scroll.pages.size %>" 
-	data-color="<%=section_scroll.color%>" 
+	data-color="<%=section_scroll.color[:color]%>" 
 	data-scroll-id="<%=section_scroll.id%>">
 	<%= render :partial => "pages/page_scroll", :locals => { :color => section_scroll.color, :first_box => section_scroll.pages.size <= 1 }, :collection => section_scroll.pages %>
-	<li class="mini-box mini-box-add" id="page-add-<%= section_scroll.id %>" style="background: 
-		<%= section_scroll.color[:color] %>
-		">
-	  <%= link_to section_scroll.id, {:controller => "pages", :action => "new", :section => section_scroll.id}, :remote=>true, :class => "fill-div" %>
+	<li class="mini-box mini-box-add" id="page-add-<%= section_scroll.id %>" style="background: <%= section_scroll.color[:color] %>">
+	  <%= link_to '+', {:controller => "pages", :action => "create", :section => section_scroll.id}, :remote=>true, :class => "fill-add-div", :method=>"post" %>
 	</li>
 </ul>

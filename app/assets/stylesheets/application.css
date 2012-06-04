@@ -32,8 +32,9 @@ h5, h6 {
 	margin-bottom: 0px;
 }
 
-h3 {
+h2, h3 {
 	margin: 0;
+	margin-top: 5px;
 	font-weight:normal;
 }
 
@@ -43,7 +44,8 @@ h3 {
 
 /* Should be all ul but needa change margin */
 ul.class-scroller, ul.sections-scroll, ul.connectedSortable {
-	height: 75px;
+	/*height: 75px;*/
+	height: 83px;
 	list-style-type:none;
 	margin:0;
 	padding:0;
@@ -174,16 +176,17 @@ html ul.button-nav li ul.subnav li a:hover { /*--Hover effect for subnav links--
 
 #left-nav {
 	width: 200px;
-	height: 60px;
-	/*background-color: #999000;
-	cursor: pointer; */
+	height: 57px;
+	margin-left: 5px;
+	/*cursor: pointer; */
 	float: left;
 }
 
 #class-scroller-container {
-	height: 77px; /* Was 85 but needed to be changed */
+	/*height: 77px; /* Was 85 but needed to be changed */
+	height: 85px;
 	width: 100%;
-	background-color: #464646;
+	background-color: #F1F1F1;
 	position: relative;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -207,10 +210,10 @@ html ul.button-nav li ul.subnav li a:hover { /*--Hover effect for subnav links--
 
 
 /* Class for Preview Boxes */
-li.mini-box {
-	height: 75px;
+li.mini-box {	
+	height: 67px;
+	width: 67px;
 	min-width: 20px;
-	width: 75px;
 	background-color: #555555;
 	float: left;
 	margin: 0 2px 0 2px;
@@ -218,7 +221,15 @@ li.mini-box {
 	margin-top: 8px;
 }
 
+li.mini-box-selected {
+	border-color: gray;
+	border-style:solid;
+	border-width:4px;
+	margin-top: 4px;
+}
+
 li.mini-box-add {
+	height: 67px;
 	width: 25px;
 	text-align: center;
 }
@@ -245,7 +256,8 @@ a.fill-div {
 	float: right;
 	position: absolute;
 	width: 100%;
-	height: 75px;
+	/*height: 75px;*/
+	height: 83px;
 }
 
 .center {

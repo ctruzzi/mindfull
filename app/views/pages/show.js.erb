@@ -1,6 +1,7 @@
-<!-- @current_page.id -->
 $('#content').html("<%= escape_javascript render(@page) %>");
 $('#left-nav').css('background-color', '<%= @color[:color] %>')
-$('#header-page-name').text("<%=@page.title%>")
+$('#header-page-name').text("<%=@page.section.title%>")
 $('#new-entry-button').attr('href', "/entries/new?current_page=<%=@page.id%>")
+$(".mini-box").removeClass("mini-box-selected")
+$('#page-scroll-id-<%=@page.id%>').addClass("mini-box-selected")
 pageSetListeners();

@@ -3,14 +3,13 @@ Completed 90% of the scroller. It now needs to actually delete and scroll horizo
 
 
 NEW!!!
-	! We need to finish the seed.rb so that it adds all of the images into the database
-		- Seed should be able to create a new entry with the tex for those pages
+	! (Finished) We need to finish the seed.rb so that it adds all of the images into the database
+		- (Finished) Seed should be able to create a new entry with the tex for those pages
 		- (Finished) Seed adds all of the images (should do that currently) to the database
 	! FRONT PAGE
 		- Change log in screen
 		- Redirect if logged out
-	! Need to change seed.rb to actually add entries to the initial pages.
-	! Need to add the images as well.
+	! (Finished) Need to change seed.rb to actually add entries to the initial pages.
 	! Create home page
 	- (Finished) Change add section to be inline (so that it's a text input with an okay button)
 	- (Finished) Add the create new class to the rendered page so we are not ajax calling it

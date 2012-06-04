@@ -46,8 +46,15 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     #params[:page][:section_id] = Section.find(params[:section_id])
-    params[:page][:section_id] = params[:section_id]
-    @page = current_user.pages.build(params[:page])
+    if(params[:page].nil?) 
+      #Auto Create, not taking params other then section
+      autoName = "autoName#{Section.find(params[:section]).pages.size + 1}"
+      params[:page] = {:section_id => params[:section], :title => autoName}
+      @page = current_user.pages.build(params[:page])
+    else 
+      params[:page][:section_id] = params[:section_id]
+      @page = current_user.pages.build(params[:page])
+    end
 
     #hidden value for this on e  <%= f.hidden_field :clazz_id, {:value => @section.clazz_id}  %>
     respond_to do |format|

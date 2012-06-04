@@ -1,6 +1,5 @@
- <li class="mini-box 
- 	<%=first_box ? 'draggable-false' : 'draggable-nav' %>" 
- 	data-page-id="<%= page_scroll.id %>" style="background:<%= color[:color] %>">
+ <li class="mini-box <%=first_box ? 'draggable-false' : 'draggable-nav' %>" 
+ 	data-page-id="<%= page_scroll.id %>" style="background:<%= color[:color] %>" id="page-scroll-id-<%= page_scroll.id%>">
  	<!-- Crazy display will be shown here. -->
  	<!-- <%= page_scroll.title %> -->
  	<%= link_to "", page_scroll, :remote=>true, :class => "fill-div" %>
