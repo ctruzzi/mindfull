@@ -40,37 +40,45 @@ class SessionsController < ApplicationController
   end
   
   def create
+    p "[#{params[:session][:user_name]}]"
+    if (params[:session][:user_name].empty?)
+        flash.now[:error] = "Invalid email"
+        @title = "Sign in"
+        redirect_to '/signin'
+    else 
     user = User.find_by_user_name(params[:session][:user_name])
-    if user.nil?
-      params[:session][:email] = "temp@temp.com"
-      user = User.new(params[:session])
-      user.save
 
-      CLAZZES.each_with_index do |each_clazz, index| 
-        clazz = user.clazzs.create({:name => each_clazz[:title]})
-        each_clazz[:sections].each_with_index do |section_name, inner_index|
+      if user.nil?
+        params[:session][:email] = "temp@temp.com"
+        user = User.new(params[:session])
+        user.save
 
-          the_section = clazz.sections.create({:title => section_name, :color => COLORS[inner_index % COLORS.size]})
-          #For some reason the section isn't creating the default Page
-          user.pages.create!({:title => "Default", :section_id => the_section.id})
+        CLAZZES.each_with_index do |each_clazz, index| 
+          clazz = user.clazzs.create({:name => each_clazz[:title]})
+          each_clazz[:sections].each_with_index do |section_name, inner_index|
+
+            the_section = clazz.sections.create({:title => section_name, :color => COLORS[inner_index % COLORS.size]})
+            #For some reason the section isn't creating the default Page
+            user.pages.create!({:title => "Default", :section_id => the_section.id})
+          end
         end
+        #add the categories for the customer
+      else
+        user = User.authenticate(user,"")
       end
-      #add the categories for the customer
-    else
-      user = User.authenticate(user,"")
-    end
 
-    #Check if the user exists, if it doesn't then create it
-  	if user.nil?
-  		#User is nil menaing we didn't find that email address
-  		flash.now[:error] = "Invalid email"
-  		@title = "Sign in"
-  		render 'new'	
-  	else
-  		#Sign user in and redirect to the users home page
-  		sign_in user
-		redirect_to user
-  	end
+      #Check if the user exists, if it doesn't then create it
+    	if user.nil?
+    		#User is nil menaing we didn't find that email address
+    		flash.now[:error] = "Invalid email"
+    		@title = "Sign in"
+    		render 'new'	
+    	else
+    		#Sign user in and redirect to the users home page
+    		sign_in user
+  		  redirect_to user
+    	end
+    end
   end
 
   def destroy
