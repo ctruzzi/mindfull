@@ -150,8 +150,13 @@ class SeedHelper
 						img = Image.create!({:first_level => outer_folder, :second_level => inner_folder, :image_url => "#{third_level}/#{image}", :x => size[0], :y => size[1]})
 						image_choices << img.id
 					end
-					directory = "#{Dir.pwd}#{DEFAULT_DIRECTORY}/"
-					lines = File.readlines("#{directory}#{outer_folder}/#{inner_folder}/#{third_level}/Text.txt")                                 #{image_info[:img]}"
+					directory_path = "#{Dir.pwd}#{DEFAULT_DIRECTORY}/#{outer_folder}/#{inner_folder}/#{third_level}/"
+
+					if(File.exist?("#{directory_path}/Text.txt"))
+						lines = File.readlines("#{directory_path}/Text.txt")                                 #{image_info[:img]}"
+					else
+						lines = File.readlines("#{directory_path}/text.txt")    
+					end
 
 					page.entries.create!({:text => lines.join, :optional_images => image_choices, :image => 0, :custom_css => cssNoteArray[Integer(outer_folder) - 1][Integer(inner_folder) - 1][Integer(third_level) - 1]})
 					#p "#{outer_folder}    #{inner_folder}     #{third_level}     text.txt"
