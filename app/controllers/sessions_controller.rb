@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
   
   def create
-  	user = User.authenticate(params[:session][:email],"")
+  	user = User.authenticate(params[:session][:user_name],"")
   	if user.nil?
   		#User is nil menaing we didn't find that email address
   		flash.now[:error] = "Invalid email"

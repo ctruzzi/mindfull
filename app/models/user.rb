@@ -29,11 +29,11 @@ class User < ActiveRecord::Base
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	
 	validates :user_name,	:presence => true,
-						:length => { :maximum => 50 }
+						:length => { :maximum => 50 },
+						:uniqueness 	=> true	
 	
 	validates :email,	:presence 	=> true,
-					 	:format => { :with => email_regex },
-					 	:uniqueness 	=> true	
+					 	:format => { :with => email_regex }
 
 
 	#validates :password, :presence		=> true,
@@ -44,8 +44,8 @@ class User < ActiveRecord::Base
 	#Call encrypt_password method prior to saving in active record
 	before_save :encrypt_password
 
-	def self.authenticate(email,submitted_password)
-		user = find_by_email(email)
+	def self.authenticate(user_name,submitted_password)
+		user = find_by_user_name(user_name)
 		return nil if user.nil? #return nil if we cannot find user
 		return user if user.has_password?(submitted_password)
 		#returns nil if doesn't meet either
