@@ -8,28 +8,27 @@
 <body>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$.idleTimer(30000); 
+		$.idleTimer(5000); 
 		$(document).bind("idle.idleTimer", function(){
 		 // function you want to fire when the user goes idle
+			var timer = window.setTimeout ( function() {
+				$('#custom-overlay').fadeOut(500, function() { 
+					window.location = '/signin'; 
+				}) 
+			}, 10000);
 
-		 $('#custom-overlay').fadeIn(500, function() {
-		 		var timer = window.setTimeout ( function() {
-		 			$('#custom-overlay').fadeOut(500, function() { 
-		 				window.location = '/signin'; 
-		 			}) 
-		 		}, 10000);
-
-		 		$('#custom-overlay').click(function(){
-		 			$('#custom-overlay').fadeOut(500,function() { 
-		 				clearTimeout(timer)
-		 			});
-		 		});
-		 		$('#custom-overlay').mousemove(function(){
-		 			$('#custom-overlay').fadeOut(500,function() { 
-		 				clearTimeout(timer)
-		 			});
-		 		});
-			 });
+	 		 $( "#overlay-popup" ).dialog({ height: 150, 
+	 			title: "Create New Note", 
+	 			position: "center", 
+	 			zIndex: 1003,
+	 			modal: true, 
+	 			draggable: false, 
+	 			resizable: false,
+	 			buttons: { 
+	 				"Keep Going": function() { clearTimeout(timer); $(this).dialog("close"); },
+	 				"Finished" : function() { $(this).dialog("close"); window.location = '/signin'; }
+	 			} 
+	 		});
 		});
 	});
 	</script>

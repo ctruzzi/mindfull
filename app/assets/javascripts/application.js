@@ -42,7 +42,7 @@ $(document).ready(function() {
 	scrollSetListeners();
 
 	//Setting some overlay
-	var $overlay = $('<div class="ui-widget-overlay" id="custom-overlay" style="z-index:999;"></div>').hide().appendTo('body');
+	var $overlay = $('<div class="ui-widget-overlay" id="custom-overlay" style="z-index:1002;"><div id="overlay-popup"></div></div>').hide().appendTo('body');
 })
 
 
