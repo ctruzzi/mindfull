@@ -16,8 +16,10 @@
 					window.location = '/signin'; 
 				}) 
 			}, 10000);
-
-	 		 $( "#overlay-popup" ).dialog({ height: 150, 
+			 $( "#overlay-popup" ).html("Thank you for trying Mindful")
+	 		 $( "#overlay-popup" ).dialog({ 
+	 		 	height: 150, 
+	 		 	width: 230,
 	 			title: "Create New Note", 
 	 			position: "center", 
 	 			zIndex: 1003,
@@ -26,9 +28,11 @@
 	 			resizable: false,
 	 			buttons: { 
 	 				"Keep Going": function() { clearTimeout(timer); $(this).dialog("close"); },
-	 				"Finished" : function() { $(this).dialog("close"); window.location = '/signin'; }
+	 				"Finished" : function() { $(this).dialog("close"); clearTimeout(timer); window.location = '/signin'; }
 	 			} 
-	 		});
+	 		}).bind( "dialogclose", function(event, ui) {
+ 				clearTimeout(timer);
+			});
 		});
 	});
 	</script>

@@ -10,15 +10,14 @@
 			organize and arrange as you like. Enter your Name to give it a try.
 		</p>
 	</div>
-	<div class="bottom-log-in">
+	<div class="bottom-log-in center" style="width:40%">
 		<script type="text/javascript">
 
 		</script>
 		<%= form_for(:session, :url => sessions_path, :html => {:name => 'sign_in'})  do |f| %>
 
-				Name:
-				<%= f.text_field :user_name, :style => "margin-left: 10px;", :id => "sign-in-field", :placeholder => "John Doe", :value => "John Doe", :size => "27" %>
-			
+
+				 <%= f.hidden_field  :user_name, :id => "sign-in-field", :value => "John Doe"%>
 				<div class="sign-in-button" >
 					<a href="javascript:document.sign_in.submit()" class="fill-div" style="padding-left: 13px;">Get Started</a>
 				</div>

@@ -44,9 +44,9 @@
 	<ul class="button-nav right-nav">
 	    <li>
 	        <%= link_to image_tag("Newnote.png", :alt => "+Note", :size => "56x26", :style => "float: left"), {:controller => "entries", :action => "new", :current_page => @current_page.nil? ? "none" : @current_page.id }, :remote => true, :id => "new-entry-button" %>
-	        <ul class="subnav">
+	       <!-- <ul class="subnav">
 				<li><%= link_to '+Section', new_clazz_path, :remote=>true, :class=>'create_clazz fill-div' %></li>
-	        </ul>
+	        </ul> -->
 	    </li>
 	    <li>
 	    	<%= link_to 'Show Text', '#', :id => 'show-text-btn', :class => 'show-text-btn-on' %>
