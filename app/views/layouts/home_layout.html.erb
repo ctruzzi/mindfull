@@ -9,6 +9,37 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$.idleTimer(30000); 
+			$(document).bind("idle.idleTimer", function(){
+			 // function you want to fire when the user goes idle
+				var timer = window.setTimeout ( function() {
+					$('#custom-overlay').fadeOut(500, function() { 
+						window.location = '/signin'; 
+					}) 
+				}, 10000);
+				 $( "#overlay-popup" ).html("Thank you for trying Mindful")
+		 		 $( "#overlay-popup" ).dialog({ 
+		 		 	height: 150, 
+		 		 	width: 230,
+		 			title: "Create New Note", 
+		 			position: "center", 
+		 			zIndex: 1003,
+		 			modal: true, 
+		 			draggable: false, 
+		 			resizable: false,
+		 			buttons: { 
+		 				"Keep Going": function() { clearTimeout(timer); $(this).dialog("close"); },
+		 				"Finished" : function() { $(this).dialog("close"); clearTimeout(timer); window.location = '/signin'; }
+		 			} 
+		 		}).bind( "dialogclose", function(event, ui) {
+	 				clearTimeout(timer);
+				});
+				$('.ui-dialog :button').blur();
+			});
+		});
+	</script>
 	<div id="body" style="paddin-bottom: 10px">
 		<div id="header" class="shadow-bottom" style=" ">
 			<div id="header-main">

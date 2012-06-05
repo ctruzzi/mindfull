@@ -88,3 +88,10 @@ li.add-section-button {
 	padding-left: 20px;
 	margin-left: -20px;
 }
+
+li.ellipsis-list {
+	white-space: nowrap;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
