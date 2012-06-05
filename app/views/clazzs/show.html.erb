@@ -18,11 +18,14 @@
 					if(parent.children().last().attr("data-page-id") === item.attr("data-page-id")) {
 						$("#page-add-"+parent.attr('data-scroll-id')).appendTo(parent)
 					}
-					item.css('background', ui.item.parent().attr('data-color'));	
+					var color = ui.item.parent().attr('data-color');
+					item.css('background', color);
+					$('.image-overlay-text').css("background-color", color)	//Change bg color of all texts
 					getIt(item)
 				}).bind( "sortout", function(event, ui) {
 					//debugger;
 				});
+
 			});
 
 			function getIt(item) {
@@ -40,13 +43,29 @@
 				});			
 				$.ajaxSettings.accepts.html = $.ajaxSettings.accepts.script;		
 			}
+
+
 	</script>
 		<%= render :partial => "sections/section_scroll", :collection => @clazz.sections %>
 		<!--</ul> -->
 		</div>
 </div>
+
 <section id="content" class="content-class">
-	<div id="notice"><%= notice %></div>
+	<div id="notice-container">
+		<div id="notice" style="display:none" class="center">
+			<div id="basic-template">
+		        <a class="ui-notify-cross ui-notify-close" href="#">x</a>
+		        <h1>#{title}</h1>
+		        <p>#{text}</p>
+		    </div>
+		 
+		    <div id="basic-template-noclick">
+		         <h1>#{title}</h1>
+		        <p>#{text}</p>
+		    </div>
+		</div>
+	</div>
 	<script type="text/javascript">
 		$('#left-nav').css('background-color', '<%= @color[:color] %>')
 		$('#header-page-name').text("<%= @current_page.section.title %>")

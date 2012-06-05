@@ -1,5 +1,9 @@
 
-<div id="entry-<%= entry.id %>" data-entry-id="<%=entry.id%>" data-current-img-loc="<%=entry.image%>" data-img-count="<%=entry.optional_images.size%>"class="image-box shadow" style="background-color: black; position: absolute; <%=entry.custom_css %>">
+<div id="entry-<%= entry.id %>" 
+	data-entry-id="<%=entry.id%>" 
+	data-current-img-loc="<%=entry.image%>" 
+	data-img-count="<%=entry.optional_images.size%>"
+	class="image-box shadow" style="background-color: black; position: absolute; <%=entry.custom_css %>">
 	<% entry.optional_images.each_with_index do |op_img, index| %>
 		<%image = Image.find(op_img) %>
 		<% if index === Integer(entry.image)%>

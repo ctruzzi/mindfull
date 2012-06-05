@@ -1,12 +1,14 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font: normal small/1.4em Helvetica Neue light;
+  font-family: Helvetica Neue ligh;
   font-size: 13px;
   line-height: 18px; }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font: normal small/1.4em Helvetica Neue light;
+  font-family: Helvetica Neue light;
   font-size: 13px;
   line-height: 18px; }
 
@@ -28,7 +30,8 @@ div {
     margin-bottom: 10px; } }
 
 #notice {
-  color: green; }
+  /*color: green; */
+}
 
 .field_with_errors {
   padding: 2px;

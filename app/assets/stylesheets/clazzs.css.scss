@@ -35,3 +35,23 @@ h3 {
 	width:100%;
 	text-decoration: none;
 }
+
+div#entry-trash {
+	float:right; 
+	text-indent: -9999px;
+	height: 26px;
+	width: 31px;
+	z-index: 1000; 
+	position: relative; 
+	display: none;
+	width: 53px;
+	height: 63px;
+}
+
+div#entry-trash.normal {
+	background: url(trash.png) no-repeat 0px 0px;
+}
+
+div#entry-trash.on-top {
+	background: url(trash_Highlight.png) no-repeat 0px 0px;
+}

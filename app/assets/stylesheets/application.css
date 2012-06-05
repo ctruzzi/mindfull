@@ -174,6 +174,19 @@ html ul.button-nav li ul.subnav li a:hover { /*--Hover effect for subnav links--
 
 /* Unorganized things are below here. Above should be default things like shadow or styles that aren't page specific */
 
+#notice {
+	/*width: 100%;
+	height: 20px;*/ /*
+	position: absolute; 
+	z-index: 1001; */
+}
+
+#notice-container {
+	position: absolute; 
+	z-index: 1001; 
+	width: 100%;
+}
+
 #left-nav {
 	width: 200px;
 	height: 57px;
@@ -205,7 +218,10 @@ html ul.button-nav li ul.subnav li a:hover { /*--Hover effect for subnav links--
 #page-canvas {
 	width: 95%;
 	height: 100%;
-	padding-top: 10px;
+}
+
+#undo-delete-items {
+	display: none;
 }
 
 

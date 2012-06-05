@@ -6,6 +6,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$.idleTimer(30000); 
+		$(document).bind("idle.idleTimer", function(){
+		 // function you want to fire when the user goes idle
+
+		 $('#custom-overlay').fadeIn(500, function() {
+		 		var timer = window.setTimeout ( function() {
+		 			$('#custom-overlay').fadeOut(500, function() { 
+		 				window.location = '/signin'; 
+		 			}) 
+		 		}, 10000);
+
+		 		$('#custom-overlay').click(function(){
+		 			$('#custom-overlay').fadeOut(500,function() { 
+		 				clearTimeout(timer)
+		 			});
+		 		});
+		 		$('#custom-overlay').mousemove(function(){
+		 			$('#custom-overlay').fadeOut(500,function() { 
+		 				clearTimeout(timer)
+		 			});
+		 		});
+			 });
+		});
+	});
+	</script>
 	<div id="container">
 		<% if @hide.nil? %>
 			<%= render 'layouts/header' %>
@@ -22,5 +49,6 @@
 		<%= debug(params) if Rails.env.development? && false %>
 	</div>
 	<div id="popup"></div>
+	<div id="undo-delete-items"> </div>
 </body>
 </html>
