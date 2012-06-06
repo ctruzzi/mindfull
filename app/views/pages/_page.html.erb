@@ -1,101 +1,24 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		$( "#draggable" ).draggable();
-		$( "#entry-trash" ).droppable({
-			hoverClass: "on-top",
-			tolerance: "touch",
-			drop: function( event, ui ) {
-				previousLoc = ui.draggable.data("originalPositionForDelete")
-				ui.draggable.css("top", previousLoc.top).css("left", previousLoc.left) //assign old css top and left to it
-				deleteEntry(ui.draggable[0])
 
-				//Remove all stuff from deleted_item (we are only allowing last one)
-				$("#undo-delete-items").html("");
-				ui.draggable.appendTo("#undo-delete-items"); //Hides item 	
-			}
-		});
-
-
-		function deleteEntry(entry) {
-			entry = $(entry)
-			entry_id = entry.attr("data-entry-id")
-			$.ajax({
-				type: "DELETE",
-				url: "/entries/" + entry_id + ".json",
-				contentType: "application/json",
-				dataType: "JSON",
-				data: JSON.stringify({"id": entry_id}),
-			    beforeSend: function(x) {
-		            if (x && x.overrideMimeType) {
-		              x.overrideMimeType("application/j-son;charset=UTF-8");
-		            }
-		          }
-			}).success(function(data) {
-				if(data.response == "success") {
-					$("#notice").notify("create", 
-						"basic-template",
-						{
-						    title: 'deleted a note',
-						    text: "Click here to undo deletion"
-						},{
-							click: function(e,instance){
-						      recreatePageEntry();
-						      instance.close();
-						   },
-						    close: function(e, instance) {
-						    	//Didn't want to save it, so lets remove it
-						    	$("#undo-delete-items").html("");
-						   }
-
-						}
-					);
-					entry.data("img-choices", data.img_choices)
-				}
-			});			
-			$.ajaxSettings.accepts.html = $.ajaxSettings.accepts.script;
-		}
-
-		function recreatePageEntry() {
-			page_id = $('#page-canvas').attr("data-page-id")
-			json_message = gatherEntryRecreate("undo-delete-items");
-			
-			$.ajax({
-				type: "POST",
-				url: "/entries.json",
-				contentType: "application/json",
-				dataType: "JSON",
-				data: JSON.stringify({"notes": json_message, "recreate": "true", "page_id": $("#page-canvas").data("page-id")}),
-			    beforeSend: function(x) {
-		            if (x && x.overrideMimeType) {
-		              x.overrideMimeType("application/j-son;charset=UTF-8");
-		            }
-		          }
-			}).success(function(data) {
-				if(data.response == "success") {
-					nn = data.entry_id
-					old = data.old_id
-					revived_note = $("#entry-" + old)
-					//Must change all ids
-					revived_note.attr("data-entry-id", data.entry_id)
-					revived_note.attr("id", revived_note.attr("id").replace(old, nn))
-					revived_note.children().each(function(index, child) {
-						child = $(child)
-						child_id = child.attr("id")
-						if(child_id) {
-							child.attr("id", child_id.replace(old, nn))
-						}
-					});
-
-					revived_note.appendTo("#page-canvas").hide().fadeIn('slow'); //Hides item
-				}
-			});			
-			$.ajaxSettings.accepts.html = $.ajaxSettings.accepts.script; 
-		}
 
 	});
 </script>
-
+<div id="notice-container">
+		<div id="notice" style="display:none" class="center">
+			<div id="basic-template">
+		        <a class="ui-notify-cross ui-notify-close" href="#">x</a>
+		        <h1>#{title}</h1>
+		        <p>#{text}</p>
+		    </div>
+		 
+		    <div id="basic-template-noclick">
+		         <h1>#{title}</h1>
+		        <p>#{text}</p>
+		    </div>
+		</div>
+	</div>
 <div id="page-canvas" class="center" data-page-id="<%= page.id %>">
 	<div id="entry-trash" class="normal">
 	</div>
