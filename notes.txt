@@ -47,3 +47,6 @@ Another way to do partials
 
 PRODUCTION MODE
 
+ rake assets:precompile RAILS_ENV=production
+ rake db:migrate RAILS_ENV=production
+ ruby script\rails server -e production
